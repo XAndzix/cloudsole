@@ -1,0 +1,39 @@
+#front-page{
+width: 100%;
+}
+
+
+
+
+.flex-container{
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Varela Round', sans-serif;
+    font-size: 20px;
+    
+    
+
+}
+a{
+    text-decoration: none;
+   color: #5F696F;
+}
+a:hover{
+    text-decoration: underline solid #5F696F;
+ }
+ a:actvie{
+    text-decoration: underline solid #5F696F;
+ }
+
+ #realise{
+     width: 100%;
+
+ }
+
+
+
+
