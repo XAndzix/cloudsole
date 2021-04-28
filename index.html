@@ -1,118 +1,112 @@
 <!DOCTYPE html>
 <html lang="no">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="search.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
-      <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="search.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet" />
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
   <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-firestore.js"></script>
 
-<!-- TODO: Add SDKs for Firebase products that you want to use
+  <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
 
-<script>
-  // Your web app's Firebase configuration
-  var firebaseConfig = {
-    apiKey: "AIzaSyCZKNL-Z2J-z8WhKPUsGq-7WdVfP-2wQsc",
-    authDomain: "cloud-sole.firebaseapp.com",
-    projectId: "cloud-sole",
-    storageBucket: "cloud-sole.appspot.com",
-    messagingSenderId: "556792550365",
-    appId: "1:556792550365:web:e52b368837b23a026a9c34"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyCZKNL-Z2J-z8WhKPUsGq-7WdVfP-2wQsc",
+      authDomain: "cloud-sole.firebaseapp.com",
+      projectId: "cloud-sole",
+      storageBucket: "cloud-sole.appspot.com",
+      messagingSenderId: "556792550365",
+      appId: "1:556792550365:web:e52b368837b23a026a9c34",
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
   </script>
 </head>
+
 <body>
-    <header>
-        <section id="start">
-            <img id="front-page" src="/pictures/front-page2.jpg" alt="Cloud bacground with the logo" >
-            <div id="cover">
-                <form method="get" action="">
-                  <div class="tb">
-                    <div class="td"><input type="text" placeholder="Search" required></div>
-                    <div class="td" id="s-cover">
-                      <button type="submit">
-                        <div id="s-circle"></div>
-                        <span></span>
-                      </button>
-                    </div>
-                  </div>
-                </form>
-              </div>              
-        </section>
-        <nav class="flex-container">
-          <a href="New-arrivals.html">New arrivals</a>
-          <a href="Adidas.html">Adidas</a>
-          <a href="Jordan.html">Jordan</a>
-          <a href="Nike-dunk.html">Nike Dunk</a>
-          <a href="Vans.html">Vans</a>
-          <a href="Nike.html">Nike</a>
-        </nav>
-    </header>
-    <main>
-      <section id="just-in">
-        <img id="realise" src="/pictures/Screenshot 2021-04-26 at 18.22.12.png" alt="Nike dunk pastel">
-        <h2>JUST IN: WOMEN'S NIKE DUNK LOW "LIGHT SOFT PINK" </h2>
-        <p>A bold Women's Dunk has just arrived at Cloud Sole - This edition combines multiple shades all in one silhouette for a sneaker you could pair with any spring outfit you want to throw at it. Featuring white leather on the toes, sides, and ankles, the set arrives mismatched with the left and right featuring the same colors but just at different locations. Pink, mint, purple, yellow, blue, and green are all used throughout the overlays, branding, and sockliner, while a white outsole and matching yellow outsoles are placed at the bottoms.!</p>
-        <a href="">Click here to buy</a>
-      </section>
-      <section class="recommended">
-    
-        
-      </section>
+  <header>
+    <section id="start">
+      <img id="front-page" src="./pictures/front-page2.jpg" alt="Cloud bacground with the logo" />
+      <div id="cover">
+        <form method="get" action="">
+          <div class="tb">
+            <div class="td">
+              <input type="text" placeholder="Search" required />
+            </div>
+            <div class="td" id="s-cover">
+              <button type="submit">
+                <div id="s-circle"></div>
+                <span></span>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+    <nav class="flex-container">
+      <a href="New-arrivals.html">New arrivals</a>
+      <a href="Adidas.html">Adidas</a>
+      <a href="Jordan.html">Jordan</a>
+      <a href="Nike-dunk.html">Nike Dunk</a>
+      <a href="Vans.html">Vans</a>
+      <a href="Nike.html">Nike</a>
+    </nav>
+  </header>
+  <main>
+    <section id="just-in">
+      <img id="realise" src="./pictures/Screenshot 2021-04-26 at 18.22.12.png" alt="Nike dunk pastel" />
+      <h2>JUST IN: WOMEN'S NIKE DUNK LOW "LIGHT SOFT PINK"</h2>
+      <p>
+        A bold Women's Dunk has just arrived at Cloud Sole - This edition
+        combines multiple shades all in one silhouette for a sneaker you could
+        pair with any spring outfit you want to throw at it. Featuring white
+        leather on the toes, sides, and ankles, the set arrives mismatched
+        with the left and right featuring the same colors but just at
+        different locations. Pink, mint, purple, yellow, blue, and green are
+        all used throughout the overlays, branding, and sockliner, while a
+        white outsole and matching yellow outsoles are placed at the bottoms.!
+      </p>
+      <a href="">Click here to buy</a>
+    </section>
+    <section class="recommended"></section>
+  </main>
+  <footer></footer>
 
-    </main>
-    <footer>
+  <script>
+    const db = firebase.firestore();
+    const sneakers = db.collection("sneakers");
+    const recommended = document.querySelector(".recommended");
 
-    </footer>
-    
-    <script>
-     
-      const db = firebase.firestore();
-      const sneakers = db.collection("sneakers");
-      const recommended = document.querySelector(".recommended");
-
-      const hentsneakers = async () => {
-        const svar = await sneakers.get();
-        console.log(svar.docs[ 0 ].data());
+    const hentsneakers = async () => {
+      svar = await sneakers.get();
+      data = svar.docs.map((el) => el.data());
+      console.table(data);
+      lagsneakersHTML(svar.docs[ 0 ].data());
         lagsneakersHTML(svar.docs[ 1 ].data());
-        lagsneakersHTML(svar.docs[ 4 ].data());
-        lagsneakersHTML(svar.docs[ 5 ].data());
-        lagsneakersHTML(svar.docs[ 0 ].data());
         lagsneakersHTML(svar.docs[ 2 ].data());
         lagsneakersHTML(svar.docs[ 3 ].data());
-       
-        
-         
-          
-          
-        }
-            
-      
+    };
 
-      const lagsneakersHTML = (svar) =>{
-        recommended.innerHTML += `
+    const lagsneakersHTML = (svar) => {
+      recommended.innerHTML += `
         <div>
           
-          <h2>${sneakers.name}</h2>
-          <img src="/Shoes2/${sneakers.picture}">
+          <h2>${svar.name}</h2>
+          <img src="Shoes2/${svar.picture}">
           </div>
         `;
+    };
 
-      }
-
-
-      hentsneakers();
-
-
-    </script>
-    
+    hentsneakers();
+  </script>
 </body>
+
 </html>
