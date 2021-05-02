@@ -30,10 +30,114 @@ a:hover{
  }
 
  #realise{
-     width: 100%;
+     margin-left:10%;
+     width: 80%;
 
  }
+ h1{
+    margin-left: 70px;
 
+     color: #64bbf0;
+ }
 
+ h2{
+    color: #5F696F;
+ }
+ h3{
+    color: #5F696F;
+ }
+ h3:hover{
+    text-decoration: underline solid #5F696F 4px;
+ }
+ #text-fp{
+     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+     margin-top: 5%;
+     margin-right: 20%;
+     margin-left: 20%;
+     margin-bottom: 5%;
+ }
+ #click-here{
+     margin-right: 20%;
+ }
+.recommended{
+    display: flex;
+    justify-content: space-evenly;
+    margin: 5%;
+    
+    
 
+}#rec-text{
+    margin-left: 20%;
+}
+.arrivals{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding: 20px;
+    margin: 20px;
+}
+.arrivals img{
+    width: 100%;
+}
+.Adidas{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding: 20px;
+    margin: 20px;
+}
+.Adidas img{
+    width: 100%;
+}
+.Jordan{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding: 20px;
+    margin: 20px;
+}
+.Jordan img{
+    width: 100%;
+}
+.Dunk{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding: 20px;
+    margin: 20px;
+}
+.Dunk img{
+    width: 100%;
+}
+.Vans{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding: 20px;
+    margin: 20px;
+}
+.Vans img{
+    width: 100%;
+}
+.Nike{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding: 20px;
+    margin: 20px;
+}
+.Nike img{
+    width: 100%;
+}
 
+.underside-grid1{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 2%;
+    margin: 20px;
+    padding: 0%;
+    
+}
+.underside-grid1 img{
+    width: 100%;
+    margin: 0%;
+    padding: 0;
+}
+.box{
+    margin: 0%;
+    padding: 0;
+}

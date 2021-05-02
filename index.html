@@ -34,7 +34,7 @@
 <body>
   <header>
     <section id="start">
-      <img id="front-page" src="./pictures/front-page2.jpg" alt="Cloud bacground with the logo" />
+      <img id="front-page" src="./pictures/frontpage.jpg" alt="Cloud bacground with the logo" />
       <div id="cover">
         <form method="get" action="">
           <div class="tb">
@@ -63,6 +63,7 @@
   <main>
     <section id="just-in">
       <img id="realise" src="./pictures/Screenshot 2021-04-26 at 18.22.12.png" alt="Nike dunk pastel" />
+      <div id="text-fp">
       <h2>JUST IN: WOMEN'S NIKE DUNK LOW "LIGHT SOFT PINK"</h2>
       <p>
         A bold Women's Dunk has just arrived at Cloud Sole - This edition
@@ -74,11 +75,18 @@
         all used throughout the overlays, branding, and sockliner, while a
         white outsole and matching yellow outsoles are placed at the bottoms.!
       </p>
-      <a href="">Click here to buy</a>
+      <a id="click-here" href="">Click here to buy</a>
+    </div>
     </section>
+    <div id="rec-title">
+      <h2>Recommended</h2>
     <section class="recommended"></section>
+  </div>
   </main>
-  <footer></footer>
+  <footer>
+ <h3>About</h3>
+ <h3>Socials</h3>
+  </footer>
 
   <script>
     const db = firebase.firestore();
@@ -89,18 +97,21 @@
       svar = await sneakers.get();
       data = svar.docs.map((el) => el.data());
       console.table(data);
-      lagsneakersHTML(svar.docs[ 0 ].data());
-        lagsneakersHTML(svar.docs[ 1 ].data());
+      lagsneakersHTML(svar.docs[ 15 ].data());
+        lagsneakersHTML(svar.docs[3 ].data());
         lagsneakersHTML(svar.docs[ 2 ].data());
-        lagsneakersHTML(svar.docs[ 3 ].data());
+        lagsneakersHTML(svar.docs[ 14 ].data());
+        lagsneakersHTML(sneakers.data());
     };
 
-    const lagsneakersHTML = (svar) => {
+    const lagsneakersHTML = (id, svar) => {
       recommended.innerHTML += `
         <div>
-          
-          <h2>${svar.name}</h2>
-          <img src="Shoes2/${svar.picture}">
+          <a href="Underside.html"?id="123">
+          <img src="/Shoes2/${sneakers.picture}">
+          <h3> ${sneakers.name}</h3>
+          <h3> ${sneakers.price} kr</h3>
+          </a>
           </div>
         `;
     };

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="no">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="search.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet" />
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-firestore.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyCZKNL-Z2J-z8WhKPUsGq-7WdVfP-2wQsc",
+      authDomain: "cloud-sole.firebaseapp.com",
+      projectId: "cloud-sole",
+      storageBucket: "cloud-sole.appspot.com",
+      messagingSenderId: "556792550365",
+      appId: "1:556792550365:web:e52b368837b23a026a9c34",
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>
+</head>
+
+<body>
+  <header>
+    <section id="start">
+      <img i src="./pictures/otherpages.jpg" alt="Cloud bacground with the logo" width="100%"/>
+    </section>
+    <nav class="flex-container">
+      <a href="New-arrivals.html">New arrivals</a>
+      <a href="Adidas.html">Adidas</a>
+      <a href="Jordan.html">Jordan</a>
+      <a href="index.html"> 
+          <img src="/pictures/logo.png" alt="Cloud sole logo">
+      </a>
+      <a href="Nike-dunk.html">Nike Dunk</a>
+      <a href="Vans.html">Vans</a>
+      <a href="Nike.html">Nike</a>
+    </nav>
+  </header>
+  <main>
+    <h1>Nike Dunk</h1>
+    <section class="Dunk">
+    </section>
+  </main>
+  <footer>
+ <h3>About</h3>
+ <h3>Socials</h3>
+  </footer>
+
+  <script>
+    const db = firebase.firestore();
+    const sneakers = db.collection("sneakers");
+    const Dunk = document.querySelector(".Dunk");
+
+    const hentAllesneakers = async () => {
+        const svar = await sneakers.get();
+        for (const sneakers of svar.docs){
+        console.log(sneakers.data());
+          lagsneakersHTML(sneakers.data());
+        }
+      }
+      
+      const hentDunkBrand = async () => {
+        Dunk.innerHTML= ``;
+        const svar = await sneakers.where("brand", "==", "Nike-dunk").get();
+        for (const sneakers of svar.docs){
+          lagsneakersHTML(sneakers.id, sneakers.data());
+        }
+
+      }
+
+      const lagsneakersHTML = (id, sneakers) =>{
+        Dunk.innerHTML += `
+        <div>
+          <a href="Underside.html?id=${id}">
+          <img src="/Shoes2/${sneakers.picture}">
+          <h3> ${sneakers.name}</h3>
+          <h3> ${sneakers.price} kr</h3>
+          </a>
+          </div>
+        `;
+
+      
+    };
+    hentDunkBrand();
+    
+  </script>
+</body>
+
+</html>
