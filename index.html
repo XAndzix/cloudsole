@@ -89,34 +89,45 @@
   </footer>
 
   <script>
-    const db = firebase.firestore();
+  const db = firebase.firestore();
     const sneakers = db.collection("sneakers");
     const recommended = document.querySelector(".recommended");
 
-    const hentsneakers = async () => {
-      svar = await sneakers.get();
-      data = svar.docs.map((el) => el.data());
-      console.table(data);
-      lagsneakersHTML(svar.docs[ 15 ].data());
-        lagsneakersHTML(svar.docs[3 ].data());
-        lagsneakersHTML(svar.docs[ 2 ].data());
-        lagsneakersHTML(svar.docs[ 14 ].data());
-        lagsneakersHTML(sneakers.data());
-    };
+    //new block start
+    const hentAllesneakers = async () => {
+        const svar = await sneakers.get();
+        for (const sneakers of svar.docs){
+        console.log(sneakers.data());
+          lagsneakersHTML(sneakers.data());
+        }
+      }
+      
 
-    const lagsneakersHTML = (id, svar) => {
-      recommended.innerHTML += `
+
+
+      const hentRandomBrand = async () => {
+        recommended.innerHTML= ``;
+        const svar = await sneakers.where("isRecommended", "==", "Yes").get();
+        for (const sneakers of svar.docs){
+          lagsneakersHTML(sneakers.id, sneakers.data());
+        }
+
+      }
+      const lagsneakersHTML = (id, sneakers) =>{
+        recommended.innerHTML += `
         <div>
-          <a href="Underside.html"?id="123">
+          <a href="Underside.html?id=${id}">
           <img src="/Shoes2/${sneakers.picture}">
           <h3> ${sneakers.name}</h3>
           <h3> ${sneakers.price} kr</h3>
           </a>
           </div>
         `;
+
     };
 
-    hentsneakers();
+    hentRandomBrand();
+
   </script>
 </body>
 

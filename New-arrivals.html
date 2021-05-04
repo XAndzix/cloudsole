@@ -63,34 +63,40 @@
     const sneakers = db.collection("sneakers");
     const arrivals = document.querySelector(".arrivals");
 
-    const hentsneakers = async () => {
-      svar = await sneakers.get();
-      data = svar.docs.map((el) => el.data());
-      console.table(data);
-      lagsneakersHTML(svar.docs[ 0 ].data());
-        lagsneakersHTML(svar.docs[1 ].data());
-        lagsneakersHTML(svar.docs[ 2 ].data());
-        lagsneakersHTML(svar.docs[ 3 ].data());
-        lagsneakersHTML(svar.docs[ 4 ].data());
-        lagsneakersHTML(svar.docs[5 ].data());
-        lagsneakersHTML(svar.docs[ 6].data());
-        lagsneakersHTML(svar.docs[ 7 ].data());
-        lagsneakersHTML(svar.docs[ 8 ].data());
-        lagsneakersHTML(svar.docs[9 ].data());
-        lagsneakersHTML(svar.docs[ 10 ].data());
-        lagsneakersHTML(svar.docs[ 11 ].data());
-    };
+    //new block start
+    const hentAllesneakers = async () => {
+        const svar = await sneakers.get();
+        for (const sneakers of svar.docs){
+        console.log(sneakers.data());
+          lagsneakersHTML(sneakers.data());
+        }
+      }
+      
 
-    const lagsneakersHTML = (svar) => {
+
+
+      const hentRandomBrand = async () => {
+        arrivals.innerHTML= ``;
+        const svar = await sneakers.where("isNewArrival", "==", "Yes").get();
+        for (const sneakers of svar.docs){
+          lagsneakersHTML(sneakers.id, sneakers.data());
+        }
+
+      }
+      const lagsneakersHTML = (id, sneakers) =>{
         arrivals.innerHTML += `
         <div>
-            <img src="Shoes2/${sneakers.picture}">
+          <a href="Underside.html?id=${id}">
+          <img src="/Shoes2/${sneakers.picture}">
           <h3> ${sneakers.name}</h3>
+          <h3> ${sneakers.price} kr</h3>
+          </a>
           </div>
         `;
+
     };
 
-    hentsneakers();
+    hentRandomBrand();
   </script>
 </body>
 

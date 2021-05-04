@@ -81,8 +81,14 @@ a:hover{
     margin: 5%;
     
     
+}
+.recommended img{
+    width: 100%;
 
-}#rec-text{
+}
+
+
+#rec-text{
     margin-left: 20%;
 }
 .arrivals{
@@ -97,6 +103,7 @@ a:hover{
 .Adidas{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 20px;
     padding: 20px;
     margin: 20px;
 }
@@ -106,6 +113,7 @@ a:hover{
 .Jordan{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 20px;
     padding: 20px;
     margin: 20px;
 }
@@ -115,6 +123,7 @@ a:hover{
 .Dunk{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 40px;
     padding: 20px;
     margin: 20px;
 }
@@ -124,6 +133,7 @@ a:hover{
 .Vans{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 20px;
     padding: 20px;
     margin: 20px;
 }
@@ -133,6 +143,7 @@ a:hover{
 .Nike{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 20px;
     padding: 20px;
     margin: 20px;
 }
@@ -143,6 +154,7 @@ a:hover{
 .underside-grid1{
     display: grid;
     grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
     grid-gap: 2%;
     margin: 20px;
     padding: 0%;
