@@ -34,6 +34,26 @@ width: 100%;
     margin-top: 30px;
     width: 100%;
 }
+button{
+    padding-bottom: 13px;
+    padding-left: 10%;
+    display: inline;
+}
+
+input, button{
+    color: #64bbf0;
+    font-family: Nunito;
+    font-size: 30px;
+    margin: 0;
+    border: 0;
+    background-color: transparent;
+}
+.secUp{
+    display: flex;
+}
+button:actvie{
+    color: #7d79ce;
+ }
 a{
     text-decoration: none;
    color: #5F696F;

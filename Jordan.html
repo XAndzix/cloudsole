@@ -49,10 +49,12 @@
     </nav>
   </header>
   <main>
-    <h1>Jordan</h1>
-    <section class="Jordan">
-        
-    </section>
+    <div  class="secUp">
+      <button onclick="hentJordanBrand()">Jordan</button>
+      <button onclick="hentsneakersMedstyle('High') " >High</button>
+      <button onclick="hentsneakersMedstyle('Low') " >Low</button>
+    </div>
+    <section class="Jordan"></section>
   </main>
   <footer>
  <h3>About</h3>
@@ -71,6 +73,15 @@
           lagsneakersHTML(sneakers.data());
         }
       }
+     
+      const hentsneakersMedstyle = async(style) =>{
+        Jordan.innerHTML = ``;
+        const svar = await sneakers.where("style", "==" ,style).get();
+        for (const sneakers of svar.docs){
+          lagsneakersHTML(sneakers.data());
+
+        }
+      }
       
       const hentJordanBrand = async () => {
         Jordan.innerHTML= ``;
@@ -80,6 +91,23 @@
         }
 
       }
+      /*
+      const hentLowStyle = async() =>{
+        Jordan.innerHTML= ``;
+        const svar = await sneakers.where("style", "==", "Low").get();
+        for (const sneakers of svar.docs){
+          lagsneakersHTML(sneakers.data());
+        }
+      }
+
+      const hentHighStyle = async() =>{
+        Jordan.innerHTML= ``;
+        const svar = await sneakers.where("style", "==", "High").get();
+        for (const sneakers of svar.docs){
+          lagsneakersHTML(sneakers.data());
+        }
+      }
+     */
 
       const lagsneakersHTML = (id, sneakers) =>{
         Jordan.innerHTML += `

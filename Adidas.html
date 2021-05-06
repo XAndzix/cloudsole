@@ -50,6 +50,11 @@
   </header>
   <main>
     <h1>Adidas</h1>
+    <div  class="secUp">
+      <button onclick="hentAdidasBrand()">Adidas</button>
+      <button onclick="hentHighStyle()" >High</button>
+      <button onclick="hentLowStyle()" >Low</button>
+    </div>
     <section class="Adidas">
        
     </section>
@@ -79,6 +84,21 @@
           lagsneakersHTML(sneakers.id, sneakers.data());
         }
 
+      }
+      const hentLowStyle = async() =>{
+        Adidas.innerHTML= ``;
+        const svar = await sneakers.where("style", "==", "Low").get();
+        for (const sneakers of svar.docs){
+          lagsneakersHTML(sneakers.data());
+        }
+      }
+
+      const hentHighStyle = async() =>{
+        Adidas.innerHTML= ``;
+        const svar = await sneakers.where("style", "==", "High").get();
+        for (const sneakers of svar.docs){
+          lagsneakersHTML(sneakers.data());
+        }
       }
 
       const lagsneakersHTML = (id, sneakers) =>{

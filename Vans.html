@@ -50,7 +50,11 @@
       </nav>
     </header>
   <main>
-    <h1>Vans</h1>
+    <div  class="secUp">
+      <button onclick="hentVansBrand()">Vans</button>
+      <button onclick="hentHighStyle()" >High</button>
+      <button onclick="hentLowStyle()" >Low</button>
+    </div>
     <section class="Vans">
         
     </section>
@@ -80,6 +84,21 @@
           lagsneakersHTML(sneakers.id, sneakers.data());
         }
 
+      }
+      const hentLowStyle = async() =>{
+        Jordan.innerHTML= ``;
+        const svar = await sneakers.where("style", "==", "Low").get();
+        for (const sneakers of svar.docs){
+          lagsneakersHTML(sneakers.data());
+        }
+      }
+
+      const hentHighStyle = async() =>{
+        Jordan.innerHTML= ``;
+        const svar = await sneakers.where("style", "==", "High").get();
+        for (const sneakers of svar.docs){
+          lagsneakersHTML(sneakers.data());
+        }
       }
 
       const lagsneakersHTML = (id, sneakers) =>{
