@@ -27,11 +27,13 @@ width: 100%;
 .flex-container2{
     display: flex;
     justify-content: space-evenly;
+    margin: 30px;
     font-family: 'Varela Round', sans-serif;
     font-size: 20px;
 }
 #nav-logo {
-    margin-top: 30px;
+    margin-top: 10px;
+    margin-right: 60px;
     width: 100%;
 }
 button{
@@ -44,15 +46,26 @@ input, button{
     color: #64bbf0;
     font-family: Nunito;
     font-size: 30px;
-    margin: 0;
+    margin-left: 2%;
     border: 0;
     background-color: transparent;
 }
-.secUp{
+#secUp{
     display: flex;
+    border-bottom:solid 3px #7d79ce;
+}
+.material-icons{
+    margin-left: 20px;
+    
+    
+}
+.icons-bar{
+    margin-top: 20px;
+    margin-left: 700px;
 }
 button:actvie{
     color: #7d79ce;
+    
  }
 a{
     text-decoration: none;
@@ -61,9 +74,7 @@ a{
 a:hover{
     text-decoration: underline solid #5F696F;
  }
- a:actvie{
-    text-decoration: underline solid #5F696F;
- }
+ 
 
  #realise{
      margin-left:10%;
@@ -77,13 +88,16 @@ a:hover{
  }
 
  h2{
-    color: #5F696F;
+    color: #64bbf0;
  }
  h3{
     color: #5F696F;
  }
  h3:hover{
     text-decoration: underline solid #5F696F 4px;
+ }
+ #Price{
+     text-decoration: none;
  }
  #text-fp{
      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;

@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.gstatic.com" />
   <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <!-- The core Firebase JS SDK is always required and must be listed first -->
   <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-firestore.js"></script>
@@ -49,11 +50,23 @@
     </nav>
   </header>
   <main>
-    <div  class="secUp">
+    <div  id="secUp">
       <button onclick="hentJordanBrand()">Jordan</button>
       <button onclick="hentsneakersMedstyle('High') " >High</button>
       <button onclick="hentsneakersMedstyle('Low') " >Low</button>
+      <div class="icons-bar">
+      <i class="material-icons" style="font-size:50px;color:#ADA9F4;">favorite</i>
+      <i class="material-icons" style="font-size:50px;color:#3de1b3;">shopping_basket</i>
     </div>
+    </div>
+    <!-- 
+    <select id="selSorter" onchange="hentJordanBrand()">
+      <option value="asc">Price:low to high</option>
+      <option value="desc">Price:high to low</option>
+  </select>
+    -->
+
+
     <section class="Jordan"></section>
   </main>
   <footer>
@@ -65,6 +78,9 @@
     const db = firebase.firestore();
     const sneakers = db.collection("sneakers");
     const Jordan = document.querySelector(".Jordan");
+        /* 
+       const selSorter = document.querySelector("#selSorter");
+     */
 
     const hentAllesneakers = async () => {
         const svar = await sneakers.get();
@@ -115,11 +131,11 @@
           <a href="Underside.html?id=${id}">
           <img src="/Shoes2/${sneakers.picture}">
           <h3> ${sneakers.name}</h3>
-          <h3> ${sneakers.price} kr</h3>
+          <h3 id="price" > ${sneakers.price} kr</h3>
           </a>
           </div>
         `;
-
+        
       
     };
     hentJordanBrand();
