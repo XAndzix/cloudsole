@@ -54,6 +54,12 @@ input, button{
     display: flex;
     border-bottom:solid 3px #7d79ce;
 }
+.sko-flex{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 .material-icons{
     margin-left: 20px;
     

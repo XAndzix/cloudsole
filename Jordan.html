@@ -94,7 +94,7 @@
         Jordan.innerHTML = ``;
         const svar = await sneakers.where("style", "==" ,style).get();
         for (const sneakers of svar.docs){
-          lagsneakersHTML(sneakers.data());
+          lagsneakersHTML(sneakers.id, sneakers.data());
 
         }
       }
