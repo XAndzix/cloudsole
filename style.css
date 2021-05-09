@@ -2,7 +2,16 @@
 width: 100%;
 }
 
-
+.GeneratedMarquee {
+    font-family:Corbel, sans-serif;
+    font-size:2em;
+    line-height:1.3em;
+    color:#99CCFF;
+    background-color:#FFFFFF;
+    padding:3px;
+    margin:auto;
+    
+    }
 
 
 .flex-container{
