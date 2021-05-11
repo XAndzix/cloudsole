@@ -57,8 +57,8 @@
   <main>
     <div  id="secUp">
       <button onclick="hentVansBrand()">Vans</button>
-      <button onclick="hentHighStyle()" >High</button>
-      <button onclick="hentLowStyle()" >Low</button>
+      <button onclick="hentsneakersMedstyle('VansHigh')">High</button>
+      <button onclick="hentsneakersMedstyle('VansLow')">Low</button>
     </div>
     <div class="icons-bar">
       <i class="material-icons" style="font-size:50px;color:#ADA9F4;">favorite</i>
@@ -79,6 +79,7 @@
     const Vans = document.querySelector(".Vans");
 
     const hentAllesneakers = async () => {
+      Vans.innerHTML= ``;
         const svar = await sneakers.get();
         for (const sneakers of svar.docs){
         console.log(sneakers.data());
@@ -94,6 +95,16 @@
         }
 
       }
+
+      const hentsneakersMedstyle = async(style) =>{
+        Vans.innerHTML = ``;
+        const svar = await sneakers.where("style", "==" ,style).get();
+        for (const sneakers of svar.docs){
+          lagsneakersHTML(sneakers.id, sneakers.data());
+
+        }
+      }
+      /*
       const hentLowStyle = async() =>{
         Jordan.innerHTML= ``;
         const svar = await sneakers.where("style", "==", "Low").get();
@@ -109,6 +120,7 @@
           lagsneakersHTML(sneakers.data());
         }
       }
+      */
 
       const lagsneakersHTML = (id, sneakers) =>{
         Vans.innerHTML += `
@@ -116,7 +128,7 @@
           <a href="Underside.html?id=${id}">
           <img src="/Shoes-sorted/picture/${sneakers.picture}">
           <h3> ${sneakers.name}</h3>
-          <h3 id="price"> ${sneakers.price} kr</h3>
+          <h4 id="price"> ${sneakers.price} kr</h4>
           </a>
           </div>
         `;

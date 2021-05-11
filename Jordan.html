@@ -58,8 +58,8 @@
   <main>
     <div  id="secUp">
       <button onclick="hentJordanBrand()">Jordan</button>
-      <button onclick="hentsneakersMedstyle('High') " >High</button>
-      <button onclick="hentsneakersMedstyle('Low') " >Low</button>
+      <button onclick="hentsneakersMedstyle('JordanHigh')">High</button>
+      <button onclick="hentsneakersMedstyle('JordanLow')">Low</button>
       <div class="icons-bar">
       <i class="material-icons" style="font-size:50px;color:#ADA9F4;">favorite</i>
       <i class="material-icons" style="font-size:50px;color:#3de1b3;">shopping_basket</i>
@@ -89,6 +89,7 @@
      */
 
     const hentAllesneakers = async () => {
+      Jordan.innerHTML = ``;
         const svar = await sneakers.get();
         for (const sneakers of svar.docs){
         console.log(sneakers.data());
@@ -137,7 +138,7 @@
           <a href="Underside.html?id=${id}">
           <img src="/Shoes-sorted/picture/${sneakers.picture}">
           <h3> ${sneakers.name}</h3>
-          <h3 id="price" > ${sneakers.price} kr</h3>
+          <h4 id="price" > ${sneakers.price} kr</h4>
           </a>
           </div>
         `;

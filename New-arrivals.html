@@ -55,7 +55,14 @@
     </nav>
   </header>
   <main>
+    <div  id="secUp">
     <button>New Arrivals</button>
+    </div>
+  </div>
+  <div class="icons-bar">
+    <i class="material-icons" style="font-size:50px;color:#ADA9F4;">favorite</i>
+    <i class="material-icons" style="font-size:50px;color:#3de1b3;">shopping_basket</i>
+  </div>
     <section class="arrivals">
     </section>
   </main>
@@ -95,7 +102,7 @@
           <a href="Underside.html?id=${id}">
             <img src="/Shoes-sorted/picture/${sneakers.picture}">
           <h3> ${sneakers.name}</h3>
-          <h3> ${sneakers.price} kr</h3>
+          <h4 id="price"> ${sneakers.price} kr</h4>
           </a>
           </div>
         `;

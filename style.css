@@ -86,9 +86,7 @@ a{
     text-decoration: none;
    color: #5F696F;
 }
-a:hover{
-    text-decoration: underline solid #5F696F;
- }
+
  
 
  #realise{
@@ -111,8 +109,11 @@ a:hover{
  h3:hover{
     text-decoration: underline solid #5F696F 4px;
  }
- #Price{
-     text-decoration: none;
+ #price{
+    text-decoration: none;
+     font-size: 20px;
+     color: #64bbf0;
+     font-family: 'Times New Roman', Times, serif;
  }
  #text-fp{
      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -122,6 +123,7 @@ a:hover{
      margin-bottom: 5%;
  }
  #click-here{
+    text-decoration: underline solid #5F696F 4px;
      margin-right: 20%;
  }
 .recommended{

@@ -57,8 +57,8 @@
   <main>
     <div  id="secUp">
       <button onclick="hentDunkBrand()">Nike Dunk</button>
-      <button onclick="hentHighStyle()" >High</button>
-      <button onclick="hentLowStyle()" >Low</button>
+      <button onclick="hentsneakersMedstyle('DunkHigh')">High</button>
+      <button onclick="hentsneakersMedstyle('DunkLow')">Low</button>
     </div>
     <div class="icons-bar">
       <i class="material-icons" style="font-size:50px;color:#ADA9F4;">favorite</i>
@@ -78,12 +78,23 @@
     const Dunk = document.querySelector(".Dunk");
 
     const hentAllesneakers = async () => {
+      Dunk.innerHTML= ``;
         const svar = await sneakers.get();
         for (const sneakers of svar.docs){
         console.log(sneakers.data());
           lagsneakersHTML(sneakers.data());
         }
       }
+
+      const hentsneakersMedstyle = async(style) =>{
+        Dunk.innerHTML = ``;
+        const svar = await sneakers.where("style", "==" ,style).get();
+        for (const sneakers of svar.docs){
+          lagsneakersHTML(sneakers.id, sneakers.data());
+
+        }
+      }
+      
       
       const hentDunkBrand = async () => {
         Dunk.innerHTML= ``;
@@ -93,6 +104,7 @@
         }
 
       }
+      /*
       const hentLowStyle = async() =>{
         Dunk.innerHTML= ``;
         const svar = await sneakers.where("style", "==", "Low").get();
@@ -108,14 +120,14 @@
           lagsneakersHTML(sneakers.data());
         }
       }
-
+      */
       const lagsneakersHTML = (id, sneakers) =>{
         Dunk.innerHTML += `
         <div class="sko-flex">
           <a href="Underside.html?id=${id}">
           <img src="/Shoes-sorted/picture/${sneakers.picture}">
           <h3> ${sneakers.name}</h3>
-          <h3 id="price"> ${sneakers.price} kr</h3>
+          <h4 id="price"> ${sneakers.price} kr</h4>
           </a>
           </div>
         `;
