@@ -89,7 +89,17 @@ a{
     text-decoration: none;
    color: #5F696F;
 }
-
+select{
+    float: right;
+}
+ #selSorter{
+     color: #5F696F;
+     text-decoration: unset;
+     padding: 2px;
+     
+     margin-left: 10%;
+     
+ }
  
 
  #realise{
@@ -112,6 +122,12 @@ a{
  h3:hover{
     text-decoration: underline solid #5F696F 4px;
  }
+ .navlink:hover{
+    text-decoration: underline solid #5F696F 4px;
+ }
+ .navlink:active{
+    text-decoration: underline solid #5F696F 4px;
+ }
  #price{
     text-decoration: none;
      font-size: 20px;
@@ -132,22 +148,7 @@ a{
  #click-here:hover{
     text-decoration: underline solid #5F696F 4px;
  }
- /*
- .container{
-     display: flex;
-     align-items: center;
-     width: 100%;
-     --n: 8;
-    width: calc(var(--n)*100%);
-    transform: translate(calc(var(--i, 0)/var(--n)*-100%));
- }
- .container img{
-    width: 100%;
-    min-width: 100%;
-    width: calc(100%/var(--n));
-    pointer-events: none;
-}
-*/
+
 
 footer{
     background-image:url(/pictures/pastel-blue2.jpg);
@@ -164,6 +165,7 @@ footer{
     justify-content: space-between;
     margin: 5%;
     margin-bottom: 0%;
+    padding-right: 20px;
 }
 .parfooter{
     font-family: cursive;
@@ -184,6 +186,7 @@ footer{
     justify-content: right;
     float: right;
     margin:0%;
+    margin-right: 5%;
     
 }
 .socials img{
@@ -207,21 +210,38 @@ footer img{
 }
 */
 /*
-.container{
-    transform: translate(-50%);
-    cursor: pointer;
-    min-width: 100%;
+.recommended{
+    width: 90%;
     height: 100%;
+    overflow: hidden;
+    position: absolute;
+    top: 10px;
+    transform: translateX(-50%);
+    cursor: pointer;
+    
+}
+.slide{
+    min-width: 100%;
     display: flex;
     justify-content: space-evenly;
 }
+
 .container .recommended{
     min-width: 260px;
     margin: 0 15px;
-    height: 100%;
+    overflow: hidden;
     position: relative;
 }
+.box{
+    position: absolute;
+}
+.box img{
+    width: 100%;
+    display: block;
+    object-fit: cover;
+}
 */
+
 .recommended{
     display: flex;
     justify-content: space-evenly;
@@ -233,7 +253,6 @@ footer img{
     width: 100%;
 
 }
-
 
 #rec-title{
     margin: 5%;

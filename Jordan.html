@@ -44,23 +44,27 @@
       <img  src="./pictures/otherpages.jpg" alt="Cloud bacground with the logo"  width="100%"/>
     </section>
     <nav class="flex-container2">
-      <a class="test" href="New-arrivals.html">New arrivals</a>
-      <a class="test" href="Adidas.html">Adidas</a>
-      <a  class="test" href="Jordan.html">Jordan</a>
-      <a href="index.html"> 
-          <img  id="nav-logo" src="/pictures/logo.png" alt="Cloud sole logo">
-      </a>
-      <a class="test" href="Nike-dunk.html">Nike Dunk</a>
-      <a class="test" href="Vans.html">Vans</a>
-      <a class="test" href="Nike.html">Nike</a>
+      <a class="navlink" href="New-arrivals.html">New arrivals</a>
+      <a class="navlink" href="Adidas.html">Adidas</a>
+      <a class="navlink" href="Jordan.html">Jordan</a>
+      <a class="navlink" href="index.html"> 
+      <img src="/pictures/logo.png" alt="Cloud sole logo"></a>
+      <a class="navlink" href="Nike-dunk.html">Nike Dunk</a>
+      <a class="navlink" href="Vans.html">Vans</a>
+      <a class="navlink" href="Nike.html">Nike</a>
     </nav>
   </header>
   <main>
     <div  id="secUp">
       <button onclick="hentJordanBrand()">Jordan</button>
-      <button onclick="hentsneakersMedstyle('JordanHigh')">High</button>
-      <button onclick="hentsneakersMedstyle('JordanLow')">Low</button>
-      <div class="icons-bar">
+      <button onclick="hentsneakersMedstyle('JordanHigh')" >High</button>
+      <button onclick="hentsneakersMedstyle('JordanLow')" >Low</button>
+      
+      <select id="selSorter" onchange="hentJordanBrand()">
+        <option value="asc">Price:low to high</option>
+        <option value="desc">Price:high to low</option>
+    </select>
+    <div class="icons-bar">
       <i class="material-icons" style="font-size:50px;color:#ADA9F4;">favorite</i>
       <i class="material-icons" style="font-size:50px;color:#3de1b3;">shopping_basket</i>
     </div>
@@ -119,13 +123,12 @@
     const db = firebase.firestore();
     const sneakers = db.collection("sneakers");
     const Jordan = document.querySelector(".Jordan");
-        /* 
-       const selSorter = document.querySelector("#selSorter");
-     */
+    const selSorter = document.querySelector("#selSorter");
+    
 
     const hentAllesneakers = async () => {
       Jordan.innerHTML = ``;
-        const svar = await sneakers.get();
+        const svar = await sneakers.orderBy("price", selSorter.value).get();
         for (const sneakers of svar.docs){
         console.log(sneakers.data());
           lagsneakersHTML(sneakers.data());
@@ -134,7 +137,7 @@
      
       const hentsneakersMedstyle = async(style) =>{
         Jordan.innerHTML = ``;
-        const svar = await sneakers.where("style", "==" ,style).get();
+        const svar = await sneakers.orderBy("price", selSorter.value).where("style", "==" ,style).get();
         for (const sneakers of svar.docs){
           lagsneakersHTML(sneakers.id, sneakers.data());
 
@@ -143,7 +146,7 @@
       
       const hentJordanBrand = async () => {
         Jordan.innerHTML= ``;
-        const svar = await sneakers.where("brand", "==", "Jordan").get();
+        const svar = await sneakers.orderBy("price", selSorter.value).where("brand", "==", "Jordan").get();
         for (const sneakers of svar.docs){
           lagsneakersHTML(sneakers.id, sneakers.data());
         }

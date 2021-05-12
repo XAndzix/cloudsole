@@ -52,12 +52,12 @@
       </div>
     </section>
     <nav class="flex-container">
-      <a href="New-arrivals.html">New arrivals</a>
-      <a href="Adidas.html">Adidas</a>
-      <a href="Jordan.html">Jordan</a>
-      <a href="Nike-dunk.html">Nike Dunk</a>
-      <a href="Vans.html">Vans</a>
-      <a href="Nike.html">Nike</a>
+      <a class="navlink" href="New-arrivals.html">New arrivals</a>
+      <a class="navlink" href="Adidas.html">Adidas</a>
+      <a class="navlink" href="Jordan.html">Jordan</a>
+      <a class="navlink" href="Nike-dunk.html">Nike Dunk</a>
+      <a class="navlink" href="Vans.html">Vans</a>
+      <a class="navlink" href="Nike.html">Nike</a>
     </nav>
   </header>
   <main>
@@ -129,22 +129,7 @@
     const db = firebase.firestore();
     const sneakers = db.collection("sneakers");
     const recommended = document.querySelector(".recommended");
-    /*
-    const _C = document.querySelector('.container'), 
-      N = _C.children.length;
-
-  _C.style.setProperty('--n', N)
-
-  function lock(e) {};
-
-function move(e) {};
-
-_C.addEventListener('mousedown', lock, false);
-_C.addEventListener('touchstart', lock, false);
-
-_C.addEventListener('mouseup', move, false);
-_C.addEventListener('touchend', move, false);
-*/
+ 
     //new block start
     const hentAllesneakers = async () => {
       const svar = await sneakers.get();
@@ -167,19 +152,48 @@ _C.addEventListener('touchend', move, false);
     }
     const lagsneakersHTML = (id, sneakers) => {
       recommended.innerHTML += `
-        <div>
+      <div class="contaianer">
+        <div class="slide">
+          <div class="box">
           <a href="Underside.html?id=${id}">
           <img src="/Shoes-sorted/picture/${sneakers.picture}">
           <h3> ${sneakers.name}</h3>
           <h4 id="price"> ${sneakers.price} kr</h4>
           </a>
           </div>
+        </div>
+      </div>
         `;
 
     };
 
     hentRandomBrand();
 
+  </script>
+  <script>
+    const container = document.querySelector('.container');
+    const slide = document.querySelector('.slide');
+    const box = document.querySelectorAll('.box');
+    let width = box[0].offsetWidth + 30;
+    slide.style.minWidth = `${box.length * width}px`;
+    let start;
+    let change;
+    container.addEventListener('dragstart',(e)=>{
+      start = e.clientX;
+    })
+    container.addEventListener('dragstart',(e)=>{
+      e.preventDefault();
+      let touch = e.clientX;
+      change = start - touch;
+    })
+    container.addEventListener('dragend', slideShow);
+    function slideShow(){
+      if(change > 0){
+        container.scrollLeft += width;
+      }else{
+        container.scrollLeft -= width;
+      }
+    }
   </script>
 </body>
 
