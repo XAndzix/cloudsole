@@ -126,8 +126,11 @@ a{
      margin-bottom: 5%;
  }
  #click-here{
+     display: flex;
+     justify-content: center;
+ }
+ #click-here:hover{
     text-decoration: underline solid #5F696F 4px;
-     margin-right: 20%;
  }
  /*
  .container{
@@ -149,30 +152,42 @@ a{
 footer{
     background-image:url(/pictures/pastel-blue2.jpg);
 }
-footer img{
-    height: 200%;
+.foot{
+    margin-bottom: 0%;
+}
+.pls{
+    display: flex;
+    margin: 0%;
 }
 .flexfooter{
     display: flex;
     justify-content: space-between;
     margin: 5%;
+    margin-bottom: 0%;
 }
 .parfooter{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 10px;
-    color: rgb(36, 34, 34);
-    margin: 2%;
+    font-family: cursive;
+    font-size: 12px;
+    color: #363c3f;
+    margin: 5%;
     width: 50%;
+    margin-right: 30%;
+    margin-bottom: 20%;
+    margin-top: 0%;
+}
+.words{
+    color: rgb(218, 56, 170);  
 }
 .socials {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: right;
     float: right;
     margin:0%;
+    
 }
 .socials img{
-    width: 30%;
+    width: 80%;
 }
 
 /*
@@ -220,8 +235,9 @@ footer img{
 }
 
 
-#rec-text{
-    margin-left: 20%;
+#rec-title{
+    margin: 5%;
+    
 }
 .arrivals{
     display: grid;
