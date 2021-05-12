@@ -64,57 +64,111 @@
     <section id="just-in">
       <img id="realise" src="./pictures/Screenshot 2021-04-26 at 18.22.12.png" alt="Nike dunk pastel" />
       <div id="text-fp">
-      <h2>JUST IN: WOMEN'S NIKE DUNK LOW "LIGHT SOFT PINK"</h2>
-      <p>
-        A bold Women's Dunk has just arrived at Cloud Sole - This edition
-        combines multiple shades all in one silhouette for a sneaker you could
-        pair with any spring outfit you want to throw at it. Featuring white
-        leather on the toes, sides, and ankles, the set arrives mismatched
-        with the left and right featuring the same colors but just at
-        different locations. Pink, mint, purple, yellow, blue, and green are
-        all used throughout the overlays, branding, and sockliner, while a
-        white outsole and matching yellow outsoles are placed at the bottoms.!
-      </p>
-      <a id="click-here" href="">Click here to buy</a>
-    </div>
+        <h2>JUST IN: WOMEN'S NIKE DUNK LOW "LIGHT SOFT PINK"</h2>
+        <p>
+          A bold Women's Dunk has just arrived at Cloud Sole - This edition
+          combines multiple shades all in one silhouette for a sneaker you could
+          pair with any spring outfit you want to throw at it. Featuring white
+          leather on the toes, sides, and ankles, the set arrives mismatched
+          with the left and right featuring the same colors but just at
+          different locations. Pink, mint, purple, yellow, blue, and green are
+          all used throughout the overlays, branding, and sockliner, while a
+          white outsole and matching yellow outsoles are placed at the bottoms.!
+        </p>
+        <a id="click-here" href="">Click here to buy</a>
+      </div>
     </section>
     <div id="rec-title">
       <h2>Recommended</h2>
-    <section class="recommended"></section>
-  </div>
+      <div class="container">
+        <section class="recommended"></section>
+      </div>
+    </div>
   </main>
-  <footer>
- <h3>About</h3>
- <h3>Socials</h3>
+  <footer class="foot">
+
+    <div class="flexfooter">
+    <div class="words">
+      <h3>About</h3>
+    </div>
+    <div class="words">
+      <h3>Socials</h3>
+    </div>
+  </div>
+
+    <div  class="parfooter">
+       <p> Cloud sole is the most kawaii pastel themed sneaker shop on the internet.</p>
+        <p> We have a wide assortment of snkeakers from the most basic Nikesb Stefan Janoski black and white
+           to Nikedunk Jeff Staple pigeons that there were only 150 paris ever made.</p>
+       <p> We offer a gread deal of very unique pairs of snekaers of which many are collaboration between other companies
+        and designers.</p>
+       <p> Our company is based in Sandvika Norway but we have free international shipping and are very popular in other
+        countires.</p>
+       <p>We are the online snekaner shop you never knew you needed
+      </p>
+    </div>
+    
+      <div class="socials">
+    <div >
+      <a href="https://www.facebook.com/nike">
+        <img src="/pictures/fb.jpg" alt="Facebook pastel icon">
+      </a>
+    </div>
+    <div >
+      <a href="https://www.pinterest.com/sianaakim/pastel-streetwear/">
+        <img src="/pictures/pinterest.jpg" alt="Pinterest Pastel icon">
+      </a>
+    </div>
+    <div>
+      <a href="https://www.instagram.com/_trobos_/">
+        <img src="/pictures/insta.jpg" alt="instagram Pastel icon">
+      </a>
+    </div>
+  </div>
   </footer>
 
   <script>
-  const db = firebase.firestore();
+    const db = firebase.firestore();
     const sneakers = db.collection("sneakers");
     const recommended = document.querySelector(".recommended");
+    /*
+    const _C = document.querySelector('.container'), 
+      N = _C.children.length;
 
+  _C.style.setProperty('--n', N)
+
+  function lock(e) {};
+
+function move(e) {};
+
+_C.addEventListener('mousedown', lock, false);
+_C.addEventListener('touchstart', lock, false);
+
+_C.addEventListener('mouseup', move, false);
+_C.addEventListener('touchend', move, false);
+*/
     //new block start
     const hentAllesneakers = async () => {
-        const svar = await sneakers.get();
-        for (const sneakers of svar.docs){
+      const svar = await sneakers.get();
+      for (const sneakers of svar.docs) {
         console.log(sneakers.data());
-          lagsneakersHTML(sneakers.data());
-        }
+        lagsneakersHTML(sneakers.data());
       }
-      
+    }
 
 
 
-      const hentRandomBrand = async () => {
-        recommended.innerHTML= ``;
-        const svar = await sneakers.where("isRecommended", "==", "Yes").get();
-        for (const sneakers of svar.docs){
-          lagsneakersHTML(sneakers.id, sneakers.data());
-        }
 
+    const hentRandomBrand = async () => {
+      recommended.innerHTML = ``;
+      const svar = await sneakers.where("isRecommended", "==", "Yes").get();
+      for (const sneakers of svar.docs) {
+        lagsneakersHTML(sneakers.id, sneakers.data());
       }
-      const lagsneakersHTML = (id, sneakers) =>{
-        recommended.innerHTML += `
+
+    }
+    const lagsneakersHTML = (id, sneakers) => {
+      recommended.innerHTML += `
         <div>
           <a href="Underside.html?id=${id}">
           <img src="/Shoes-sorted/picture/${sneakers.picture}">
