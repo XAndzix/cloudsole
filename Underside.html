@@ -40,73 +40,86 @@
       <a href="New-arrivals.html">New arrivals</a>
       <a href="Adidas.html">Adidas</a>
       <a href="Jordan.html">Jordan</a>
-      <a href="index.html"> 
-      <img src="/pictures/logo.png" alt="Cloud sole logo"></a>
+      <a href="index.html">
+        <img src="/pictures/logo.png" alt="Cloud sole logo"></a>
       <a href="Nike-dunk.html">Nike Dunk</a>
       <a href="Vans.html">Vans</a>
       <a href="Nike.html">Nike</a>
     </nav>
   </header>
   <main>
-    
+
     <section id="secShoes">
-       
+
     </section>
   </main>
   <footer>
- <h3>About</h3>
- <h3>Socials</h3>
+    <h3>About</h3>
+    <h3>Socials</h3>
   </footer>
 
   <script>
-      const secShoes = document.querySelector("#secShoes");
-      const db = firebase.firestore();
-      const sneakers = db.collection("sneakers");
+    const secShoes = document.querySelector("#secShoes");
+    const db = firebase.firestore();
+    const sneakers = db.collection("sneakers");
 
-  const url = new URL(window.location.href);
-  const id = url.searchParams.get("id");
-  console.log(id);
+    const url = new URL(window.location.href);
+    const id = url.searchParams.get("id");
+    console.log(id);
 
-  const hentShoes = async(id) =>{
-  const svar =  await sneakers.doc(id).get();
-  console.log(svar.data());
-  lagShoesHTML(svar.data());
-  }
+    const hentShoes = async (id) => {
+      const svar = await sneakers.doc(id).get();
+      console.log(svar.data());
+      lagShoesHTML(svar.data());
+    }
 
-  const lagShoesHTML = (sneakers) =>{
-      secShoes.innerHTML=`
-      <div>
-        <img src="/Shoes-sorted/picture/${sneakers.picture}">
+    const lagShoesHTML = (sneakers) => {
+      secShoes.innerHTML = `
+      <div class="main-grid">
+        <div class="main-image">
+          <img id="main-image" src="/Shoes-sorted/picture/${sneakers.picture}">
+          <img id="brandLogo" src="/Shoes-sorted/logo/${sneakers.brandlogo}">
         </div>
         <div class="underside-grid1">
-        <div class="box"> <img src="/Shoes-sorted/otherpicture1/${sneakers.otherpicture1}"></div>
-        <div class="box"> <img src="/Shoes-sorted/otherpicture2/${sneakers.otherpicture2}"></div>
-        <div class="box"> <img src="/Shoes-sorted/otherpicture3/${sneakers.otherpicture3}"></div>
-        <div class="box"><img src="/Shoes-sorted/otherpicture4/${sneakers.otherpicture4}"></div>
-    
+          <img src="/Shoes-sorted/otherpicture1/${sneakers.otherpicture1}">
+          <img src="/Shoes-sorted/otherpicture2/${sneakers.otherpicture2}">
+          <img src="/Shoes-sorted/otherpicture3/${sneakers.otherpicture3}">
+          <img src="/Shoes-sorted/otherpicture4/${sneakers.otherpicture4}">
         </div>
-      <div>
-        <img src="/Shoes-sorted/logo/${sneakers.brandlogo}">
-        <h2>${sneakers.name}</h2>
-        <h3>Price</h3><h3>${sneakers.price}kr</h3>
-        <h3>Sizes:</h3>
-        <button>38</button>
-        <button>39</button>
-        <button>40</button>
-        <button>42</button>
-        <button>44</button>
-        <button>45.5</button>
-        <button>47</button>
-        <button id="addtocart">ADD TO CART</button>
-        <h3>Colorway</h3><h3>${sneakers.colorway}</h3>
-        <h3>Article no.</h3><h3>${sneakers.articleno}</h3>
-        <h3>Information about the product</h3><p>${sneakers.description}</p> 
+        <div class="grid-right">
+          <h2>${sneakers.name}</h2>
+            <div class="price">
+              <h3>${sneakers.price}kr</h3>
+            </div>
+            <h3>Sizes:</h3>
+            <div class="Sizes">
+              <button>38</button>
+              <button>39</button>
+              <button>40</button>
+              <button>42</button>
+              <button>44</button>
+              <button>45.5</button>
+              <button>47</button>
+          </div>
+          <button id="addtocart">ADD TO CART</button>
+          <h3>Information about the product</h3>
+          <p>${sneakers.description}</p>
+          <hr>
+          <div class=footer-mini>
+            <h3>Color</h3>
+            <h3>${sneakers.colorway}</h3>
+          </div>
+          <div class="footer-mini">
+            <h3>Article no.</h3>
+            <h3>${sneakers.articleno}</h3>
+          </div>
         </div>
+      </div>
       `;
 
-  }
-  hentShoes(id);
-    
+    }
+    hentShoes(id);
+
   </script>
 </body>
 
