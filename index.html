@@ -9,6 +9,13 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.gstatic.com" />
   <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet" />
+    <div id="colorScheme">
+        <link rel="stylesheet" type="text/css" media="(prefers-color-scheme: dark)" href="/include/dark.css">
+        <link rel="stylesheet" type="text/css"
+        media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)" href="/include/dark.css">
+    </div>
+    <script src="/include/main.js"></script>
+  <link rel="icon" href=""> <!-- you need a small imag for this -->
   <!-- The core Firebase JS SDK is always required and must be listed first -->
   <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-firestore.js"></script>
@@ -58,6 +65,10 @@
       <a class="navlink" href="Nike-dunk.html">Nike Dunk</a>
       <a class="navlink" href="Vans.html">Vans</a>
       <a class="navlink" href="Nike.html">Nike</a>
+      <label class="switch">
+        <input type="checkbox" id="colorPreferance">
+        <span class="slider round"></span>
+      </label>
     </nav>
   </header>
   <main>
@@ -88,47 +99,48 @@
   <footer class="foot">
 
     <div class="flexfooter">
-    <div class="words">
-      <h3>About</h3>
+      <div class="words">
+        <h3>About</h3>
+      </div>
+      <div class="words">
+        <h3>Socials</h3>
+      </div>
     </div>
-    <div class="words">
-      <h3>Socials</h3>
-    </div>
-  </div>
-      <div class="pls" >
-    <div  class="parfooter">
-       <p> Cloud sole is the most kawaii pastel themed sneaker shop on the internet.</p>
+    <div class="pls">
+      <div class="parfooter">
+        <p> Cloud sole is the most kawaii pastel themed sneaker shop on the internet.</p>
         <p> We have a wide assortment of snkeakers from the most basic Nikesb Stefan Janoski black and white
-           to Nikedunk Jeff Staple pigeons that there were only 150 paris ever made.</p>
-       <p> We offer a gread deal of very unique pairs of snekaers of which many are collaboration between other companies
-        and designers.</p>
-       
+          to Nikedunk Jeff Staple pigeons that there were only 150 paris ever made.</p>
+        <p> We offer a gread deal of very unique pairs of snekaers of which many are collaboration between other
+          companies
+          and designers.</p>
+
+      </div>
+
+      <div class="socials">
+        <div>
+          <a href="https://www.facebook.com/nike">
+            <img src="/pictures/fb2.png" alt="Facebook pastel icon">
+          </a>
+        </div>
+        <div>
+          <a href="https://www.pinterest.com/sianaakim/pastel-streetwear/">
+            <img src="/pictures/pinterest2.png" alt="Pinterest Pastel icon">
+          </a>
+        </div>
+        <div>
+          <a href="https://www.instagram.com/_trobos_/">
+            <img src="/pictures/insta2.png" alt="instagram Pastel icon">
+          </a>
+        </div>
+      </div>
     </div>
-    
-      <div   class="socials">
-    <div >
-      <a href="https://www.facebook.com/nike">
-        <img src="/pictures/fb2.png" alt="Facebook pastel icon">
-      </a>
-    </div>
-    <div >
-      <a href="https://www.pinterest.com/sianaakim/pastel-streetwear/">
-        <img src="/pictures/pinterest2.png" alt="Pinterest Pastel icon">
-      </a>
-    </div>
-    <div>
-      <a href="https://www.instagram.com/_trobos_/">
-        <img src="/pictures/insta2.png" alt="instagram Pastel icon">
-      </a>
-    </div>
-  </div>
-  </div>
-</footer>
+  </footer>
   <script>
     const db = firebase.firestore();
     const sneakers = db.collection("sneakers");
     const recommended = document.querySelector(".recommended");
- 
+
     //new block start
     const hentAllesneakers = async () => {
       const svar = await sneakers.get();
@@ -173,6 +185,7 @@
     hentRandomBrand();
 
   </script>
+
 </body>
 
 </html>

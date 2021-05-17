@@ -1,215 +1,198 @@
-html, body{
-    width: 100%;
+html,
+body {
+  width: 100%;
 }
-#front-page{
-width: 100%;
+#front-page {
+  width: 100%;
 }
 
 .GeneratedMarquee {
-    font-family:Corbel, sans-serif;
-    font-size:2em;
-    line-height:1.3em;
-    color:#99CCFF;
-    background-color:#FFFFFF;
-    padding:3px;
-    margin:auto;
-    
-    }
-
-
-.flex-container{
-    margin-left: 20%;
-    margin-right: 20%;
-    margin-top: 5%;
-    margin-bottom: 5%;
-    display: flex;
-    justify-content: space-between;
-    font-family: 'Varela Round', sans-serif;
-    font-size: 20px;
-    
-    
-
+  font-family: Corbel, sans-serif;
+  font-size: 2em;
+  line-height: 1.3em;
+  color: #99ccff;
+  background-color: #ffffff;
+  padding: 3px;
+  margin: auto;
 }
-.test{
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-top: 60px;
-    margin-bottom: 10px;
+
+.flex-container {
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  display: flex;
+  justify-content: space-between;
+  font-family: "Varela Round", sans-serif;
+  font-size: 20px;
 }
-.flex-container2{
-    display: flex;
-    justify-content: space-evenly;
-    margin: 30px;
-    font-family: 'Varela Round', sans-serif;
-    font-size: 20px;
+.test {
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 60px;
+  margin-bottom: 10px;
+}
+.flex-container2 {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 30px;
+  font-family: "Varela Round", sans-serif;
+  font-size: 20px;
 }
 #nav-logo {
-    margin-top: 10px;
-    margin-right: 60px;
-    width: 100%;
+  margin-top: 10px;
+  margin-right: 60px;
+  width: 100%;
 }
-button{
-    padding-bottom: 13px;
-    padding-left: 10%;
-    display: inline;
-}
-
-input, button{
-    color: #64bbf0;
-    font-family: Nunito;
-    font-size: 30px;
-    margin-left: 2%;
-    border: 0;
-    background-color: transparent;
-}
-#secUp{
-    display: flex;
-    border-bottom:solid 3px #7d79ce;
-}
-.sko-flex{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+button {
+  padding-bottom: 13px;
+  padding-left: 10%;
+  display: inline;
 }
 
-.material-icons{
-    margin-left: 20px;
-    
-    
+input,
+button {
+  color: #64bbf0;
+  font-family: Nunito;
+  font-size: 30px;
+  margin-left: 2%;
+  border: 0;
+  background-color: transparent;
 }
-.icons-bar{
-    margin-top: 20px;
-    margin-left: 700px;
+#secUp {
+  display: flex;
+  border-bottom: solid 3px #7d79ce;
 }
-button:actvie{
-    color: #7d79ce;
-    
- }
-a{
-    text-decoration: none;
-   color: #5F696F;
+.sko-flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
-select{
-    float: right;
-}
- #selSorter{
-     color: #5F696F;
-     text-decoration: unset;
-     padding: 2px;
-     
-     margin-left: 10%;
-     
- }
- 
 
- #realise{
-     margin-left:10%;
-     width: 80%;
-
- }
- h1{
-    margin-left: 70px;
-
-     color: #64bbf0;
- }
-
- h2{
-    color: #64bbf0;
- }
- h3{
-    color: #5F696F;
- }
- h3:hover{
-    text-decoration: underline solid #5F696F 4px;
- }
- .navlink:hover{
-    text-decoration: underline solid #5F696F 4px;
- }
- .navlink:active{
-    text-decoration: underline solid #5F696F 4px;
- }
- #price{
-    text-decoration: none;
-     font-size: 20px;
-     color: #64bbf0;
-     font-family: 'Times New Roman', Times, serif;
- }
- #text-fp{
-     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-     margin-top: 5%;
-     margin-right: 20%;
-     margin-left: 20%;
-     margin-bottom: 5%;
- }
- #click-here{
-     display: flex;
-     justify-content: center;
- }
- #click-here:hover{
-    text-decoration: underline solid #5F696F 4px;
- }
-
-
-footer{
-    background-image:url(/pictures/pastel-blue2.jpg);
+.material-icons {
+  margin-left: 20px;
 }
-.foot{
-    margin-bottom: 0%;
+.icons-bar {
+  margin-top: 20px;
+  margin-left: 700px;
 }
-.pls{
-    display: flex;
-    margin: 0%;
+button:actvie {
+  color: #7d79ce;
 }
-.flexfooter{
-    display: flex;
-    justify-content: space-between;
-    margin: 5%;
-    margin-bottom: 0%;
-    padding-right: 20px;
+a {
+  text-decoration: none;
+  color: #5f696f;
 }
-.parfooter{
-    font-family: cursive;
-    font-size: 12px;
-    color: #363c3f;
-    margin: 5%;
-    width: 50%;
-    margin-right: 30%;
-    margin-bottom: 20%;
-    margin-top: 0%;
+select {
+  float: right;
 }
-.words{
-    color: rgb(218, 56, 170);  
+#selSorter {
+  color: #5f696f;
+  text-decoration: unset;
+  padding: 2px;
+
+  margin-left: 10%;
+}
+
+#realise {
+  margin-left: 10%;
+  width: 80%;
+}
+h1 {
+  margin-left: 70px;
+
+  color: #64bbf0;
+}
+
+h2 {
+  color: #64bbf0;
+}
+h3 {
+  color: #5f696f;
+}
+h3:hover {
+  text-decoration: underline solid #5f696f 4px;
+}
+.navlink:hover {
+  text-decoration: underline solid #5f696f 4px;
+}
+.navlink:active {
+  text-decoration: underline solid #5f696f 4px;
+}
+#price {
+  text-decoration: none;
+  font-size: 20px;
+  color: #64bbf0;
+  font-family: "Times New Roman", Times, serif;
+}
+#text-fp {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  margin-top: 5%;
+  margin-right: 20%;
+  margin-left: 20%;
+  margin-bottom: 5%;
+}
+#click-here {
+  display: flex;
+  justify-content: center;
+}
+#click-here:hover {
+  text-decoration: underline solid #5f696f 4px;
+}
+
+footer {
+  background-image: url(/pictures/pastel-blue2.jpg);
+}
+.foot {
+  margin-bottom: 0%;
+}
+.pls {
+  display: flex;
+  margin: 0%;
+}
+.flexfooter {
+  display: flex;
+  justify-content: space-between;
+  margin: 5%;
+  margin-bottom: 0%;
+  padding-right: 20px;
+}
+.parfooter {
+  font-family: cursive;
+  font-size: 12px;
+  color: #363c3f;
+  margin: 5%;
+  width: 50%;
+  margin-right: 30%;
+  margin-bottom: 20%;
+  margin-top: 0%;
+}
+.words {
+  color: rgb(218, 56, 170);
 }
 .socials {
-    display: flex;
-    flex-direction: row;
-    justify-content: right;
-    float: right;
-    margin:0%;
-    margin-right: 5%;
-    
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  float: right;
+  margin: 0%;
+  margin-right: 5%;
 }
-.socials img{
-    width: 80%;
-}
-
-
-.recommended{
-    display: flex;
-    justify-content: space-evenly;
-    margin: 5%;
-    
-    
-}
-.recommended img{
-    width: 100%;
-
+.socials img {
+  width: 80%;
 }
 
-#rec-title{
-    margin: 5%;
-    
-}#front-page,
+.recommended {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 5%;
+}
+
+#rec-title {
+  margin: 5%;
+}
+#front-page,
 .Vans img,
 .Dunk img,
 .Jordan img,
@@ -279,7 +262,6 @@ footer{
 }
 .grid-right hr {
   height: 2px;
-  background-color: black;
   border: none;
 }
 .price {
@@ -307,4 +289,67 @@ footer{
 .footer-mini {
   display: flex;
   justify-content: space-evenly;
+}
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
 }
