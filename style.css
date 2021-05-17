@@ -192,97 +192,7 @@ footer{
 .socials img{
     width: 80%;
 }
-.holder {
-    margin:15px 0;
-}
-.holder a {
-    font-size:12px;
-    cursor:pointer;
-    margin:0 5px;
-    color:#333;
-}
-.holder a:hover {
-    background-color:#222;
-    color:#fff;
-}
-.holder a.jp-current,a.jp-current:hover {
-    color:#FF4242;
-    font-weight:bold;
-    cursor:default;
-    background:none;
-}
-.holder span {
-    margin:0 5px;
-}
-.customBtns {
-    position:relative;
-}
-.arrowPrev,.arrowNext {
-    width:29px;
-    height:29px;
-    position:absolute;
-    top:55px;
-    cursor:pointer;
-}
-.arrowPrev {
-    background-image:url('img/back.gif');
-    left:-45px;
-}
-.arrowNext {
-    background-image:url('img/next.gif');
-    right:-40px;
-}
-.arrowPrev.jp-disabled,.arrowNext.jp-disabled {
-    display: none;
-}
-/*
 
-.socials{
-    width: 100%;
-   
-    
-}
-.socials img{
-    width: 100%;
-}
-
-
-footer img{
-    width: 100%;
-}
-*/
-/*
-.recommended{
-    width: 90%;
-    height: 100%;
-    overflow: hidden;
-    position: absolute;
-    top: 10px;
-    transform: translateX(-50%);
-    cursor: pointer;
-    
-}
-.slide{
-    min-width: 100%;
-    display: flex;
-    justify-content: space-evenly;
-}
-
-.container .recommended{
-    min-width: 260px;
-    margin: 0 15px;
-    overflow: hidden;
-    position: relative;
-}
-.box{
-    position: absolute;
-}
-.box img{
-    width: 100%;
-    display: block;
-    object-fit: cover;
-}
-*/
 
 .recommended{
     display: flex;
@@ -299,82 +209,102 @@ footer img{
 #rec-title{
     margin: 5%;
     
+}#front-page,
+.Vans img,
+.Dunk img,
+.Jordan img,
+.Adidas img,
+.arrivals img,
+.recommended img {
+  width: 100%;
 }
-.arrivals{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    padding: 20px;
-    margin: 20px;
+.Nike,
+.Vans,
+.Dunk,
+.Jordan,
+.Adidas,
+.arrivals {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  place-self: center;
+  gap: 20px;
+  padding: 20px;
+  margin: 20px;
+  bottom: 0;
 }
-.arrivals img{
-    width: 100%;
+.main-grid {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas:
+    "a a c"
+    "b b c";
+  gap: 2%;
 }
-.Adidas{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-gap: 20px;
-    padding: 20px;
-    margin: 20px;
+.main-image {
+  grid-area: a;
 }
-.Adidas img{
-    width: 100%;
+.main-image #main-image {
+  width: 100%;
 }
-.Jordan{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-gap: 20px;
-    padding: 20px;
-    margin: 20px;
+.main-image #brandLogo {
+  position: absolute;
+  width: 200px;
+  top: 50%;
+  left: 50%;
 }
-.Jordan img{
-    width: 100%;
+.underside-grid1 {
+  grid-area: b;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-gap: 2%;
 }
-.Dunk{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-gap: 40px;
-    padding: 20px;
-    margin: 20px;
+.underside-grid1 img {
+  width: 100%;
+  margin: 0%;
 }
-.Dunk img{
-    width: 100%;
+.grid-right {
+  grid-area: c;
+  margin-right: 5%;
 }
-.Vans{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-gap: 20px;
-    padding: 20px;
-    margin: 20px;
+.grid-right h2 {
+  font-size: 48px;
 }
-.Vans img{
-    width: 100%;
+.grid-right img {
+  float: left;
+  width: 40%;
 }
-.Nike{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-gap: 20px;
-    padding: 20px;
-    margin: 20px;
+.grid-right p {
+  font-size: 20px;
 }
-.Nike img{
-    width: 100%;
+.grid-right hr {
+  height: 2px;
+  background-color: black;
+  border: none;
+}
+.price {
+  font-size: 34px;
+}
+.Sizes {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 5px;
+}
+.Sizes button {
+  border: solid #64bbf0 3px;
+  padding: 0;
+  width: 60px;
+  height: 60px;
+  border-radius: 0;
 }
 
-.underside-grid1{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 20px;
-    grid-gap: 2%;
-    margin: 20px;
-    padding: 0%;
-    
+#addtocart {
+  width: 100%;
+  padding: 0;
+  margin: 5px;
+  border: solid #64bbf0 3px;
 }
-.underside-grid1 img{
-    width: 100%;
-    margin: 0%;
-    padding: 0;
-}
-.box{
-    margin: 0%;
-    padding: 0;
+.footer-mini {
+  display: flex;
+  justify-content: space-evenly;
 }
