@@ -192,7 +192,49 @@ footer{
 .socials img{
     width: 80%;
 }
-
+.holder {
+    margin:15px 0;
+}
+.holder a {
+    font-size:12px;
+    cursor:pointer;
+    margin:0 5px;
+    color:#333;
+}
+.holder a:hover {
+    background-color:#222;
+    color:#fff;
+}
+.holder a.jp-current,a.jp-current:hover {
+    color:#FF4242;
+    font-weight:bold;
+    cursor:default;
+    background:none;
+}
+.holder span {
+    margin:0 5px;
+}
+.customBtns {
+    position:relative;
+}
+.arrowPrev,.arrowNext {
+    width:29px;
+    height:29px;
+    position:absolute;
+    top:55px;
+    cursor:pointer;
+}
+.arrowPrev {
+    background-image:url('img/back.gif');
+    left:-45px;
+}
+.arrowNext {
+    background-image:url('img/next.gif');
+    right:-40px;
+}
+.arrowPrev.jp-disabled,.arrowNext.jp-disabled {
+    display: none;
+}
 /*
 
 .socials{

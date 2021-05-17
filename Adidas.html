@@ -51,6 +51,7 @@
       <a class="navlink" href="Nike-dunk.html">Nike Dunk</a>
       <a class="navlink" href="Vans.html">Vans</a>
       <a class="navlink" href="Nike.html">Nike</a>
+      </nav>
   </header>
   <main>
     <div  id="secUp">
@@ -118,7 +119,7 @@
 
     const hentAllesneakers = async () => {
       Adidas.innerHTML = ``;
-        const svar = await sneakers.get();
+      const svar = await sneakers.orderBy("price", selSorter.value).get();
         for (const sneakers of svar.docs){
         console.log(sneakers.data());
           lagsneakersHTML(sneakers.data());

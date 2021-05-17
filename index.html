@@ -123,8 +123,7 @@
     </div>
   </div>
   </div>
-  </footer>
-
+</footer>
   <script>
     const db = firebase.firestore();
     const sneakers = db.collection("sneakers");
@@ -139,9 +138,6 @@
       }
     }
 
-
-
-
     const hentRandomBrand = async () => {
       recommended.innerHTML = ``;
       const svar = await sneakers.where("isRecommended", "==", "Yes").get();
@@ -152,9 +148,15 @@
     }
     const lagsneakersHTML = (id, sneakers) => {
       recommended.innerHTML += `
-      <div class="contaianer">
-        <div class="slide">
-          <div class="box">
+      <div class="holder">
+      </div>
+      <div class="customBtns">
+
+    <span class="arrowPrev"></span>
+    <span class="arrowNext"></span>
+      </div>
+
+      <div id="ItemContainer">
           <a href="Underside.html?id=${id}">
           <img src="/Shoes-sorted/picture/${sneakers.picture}">
           <h3> ${sneakers.name}</h3>
@@ -167,33 +169,9 @@
 
     };
 
+
     hentRandomBrand();
 
-  </script>
-  <script>
-    const container = document.querySelector('.container');
-    const slide = document.querySelector('.slide');
-    const box = document.querySelectorAll('.box');
-    let width = box[0].offsetWidth + 30;
-    slide.style.minWidth = `${box.length * width}px`;
-    let start;
-    let change;
-    container.addEventListener('dragstart',(e)=>{
-      start = e.clientX;
-    })
-    container.addEventListener('dragstart',(e)=>{
-      e.preventDefault();
-      let touch = e.clientX;
-      change = start - touch;
-    })
-    container.addEventListener('dragend', slideShow);
-    function slideShow(){
-      if(change > 0){
-        container.scrollLeft += width;
-      }else{
-        container.scrollLeft -= width;
-      }
-    }
   </script>
 </body>
 
