@@ -10,6 +10,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" />
   <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
   <!-- The core Firebase JS SDK is always required and must be listed first -->
   <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-firestore.js"></script>
@@ -62,11 +64,12 @@
         <option value="asc">Price:low to high</option>
         <option value="desc">Price:high to low</option>
     </select>
+    </div>
     <div class="icons-bar">
       <i class="material-icons" style="font-size:50px;color:#ADA9F4;">favorite</i>
       <i class="material-icons" style="font-size:50px;color:#3de1b3;">shopping_basket</i>
     </div>
-    </div>
+    
     <section class="Vans">
         
     </section>
@@ -137,7 +140,7 @@
 
       const hentsneakersMedstyle = async(style) =>{
         Vans.innerHTML = ``;
-        const svar = await sneakers.where("style", "==" ,style).get();
+        const svar = await sneakers.orderBy("price", selSorter.value).where("style", "==" ,style).get();
         for (const sneakers of svar.docs){
           lagsneakersHTML(sneakers.id, sneakers.data());
 
@@ -168,6 +171,7 @@
           <img src="/Shoes-sorted/picture/${sneakers.picture}">
           <h3> ${sneakers.name}</h3>
           <h4 id="price"> ${sneakers.price} kr</h4>
+          <button class="btn">Add to cart</button>
           </a>
           </div>
         `;

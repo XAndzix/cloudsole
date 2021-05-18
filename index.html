@@ -9,6 +9,12 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.gstatic.com" />
   <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script> 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+  
   <!-- The core Firebase JS SDK is always required and must be listed first -->
   <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-firestore.js"></script>
@@ -75,15 +81,70 @@
           all used throughout the overlays, branding, and sockliner, while a
           white outsole and matching yellow outsoles are placed at the bottoms.!
         </p>
-        <a id="click-here" href="">Click here to buy</a>
+        <a id="click-here" href="pastel.html">Click here to buy</a>
       </div>
+      <h2>Recommended</h2>
+      <section class="recommended"></section>
     </section>
     <div id="rec-title">
-      <h2>Recommended</h2>
-      <div class="container">
-        <section class="recommended"></section>
+      <!--
+      <div id="rec-title"></div>
+      <div class="slider owl-carousel">
+        <div class="card">
+          <div class="img"> <img src="/Shoes-sorted/picture/lowpurple.jpg">
+            <div class="content">
+              <div class="title">Nike Dunk Purple Lobster</div>
+              <div class="sub-title">7000kr </div>
+              <div class="btn">
+                <button>Add to cart</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+      <div class="slider owl-carousel">
+        <div class="card">
+          <div class="img"> <img src="/Shoes-sorted/picture/gg.jpg">
+            <div class="content">
+              <div class="title">Jordan 4 Green Glow</div>
+              <div class="sub-title">3000kr </div>
+              <div class="btn">
+                <button>Add to cart</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="slider owl-carousel">
+        <div class="card">
+          <div class="img"> <img src="/Shoes-sorted/picture/gg.jpg">
+            <div class="content">
+              <div class="title">Jordan 4 Green Glow</div>
+              <div class="sub-title">3000kr </div>
+              <div class="btn">
+                <button>Add to cart</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="slider owl-carousel">
+        <div class="card">
+          <div class="img"> <img src="/Shoes-sorted/picture/golfwang.jpg">
+            <div class="content">
+              <div class="title">Vans Golf Wang</div>
+              <div class="sub-title">2000kr </div>
+              <div class="btn">
+                <button>Add to cart</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+     
     </div>
+  </div>
+-->
   </main>
   <footer class="foot">
 
@@ -124,6 +185,20 @@
   </div>
   </div>
 </footer>
+<!---
+<script>
+    
+    $(".slider").owlCarousel({
+      margin: 10,
+      loop: true,
+      autoplay: false,
+      autoplayTimeout: 1000,
+      autoplayHoverPause: true, 
+   
+    });
+</script>
+-->
+
   <script>
     const db = firebase.firestore();
     const sneakers = db.collection("sneakers");
@@ -148,19 +223,14 @@
     }
     const lagsneakersHTML = (id, sneakers) => {
       recommended.innerHTML += `
-      <div class="holder">
-      </div>
-      <div class="customBtns">
-
-    <span class="arrowPrev"></span>
-    <span class="arrowNext"></span>
-      </div>
+     
 
       <div id="ItemContainer">
           <a href="Underside.html?id=${id}">
           <img src="/Shoes-sorted/picture/${sneakers.picture}">
           <h3> ${sneakers.name}</h3>
           <h4 id="price"> ${sneakers.price} kr</h4>
+          <button class="btn">Add to cart</button>
           </a>
           </div>
         </div>
@@ -173,6 +243,7 @@
     hentRandomBrand();
 
   </script>
+ 
 </body>
 
 </html>

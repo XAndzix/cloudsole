@@ -9,9 +9,8 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.gstatic.com" />
   <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
   <!-- The core Firebase JS SDK is always required and must be listed first -->
   <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-firestore.js"></script>
@@ -35,39 +34,24 @@
 </head>
 
 <body>
-  <header>
-    <section>
-      <div>
-        <marquee class="GeneratedMarquee" direction="left" scrollamount="17" behavior="scroll">🌸 ✨ ☁ FREE WORLDWIDE SHIPPING ☁ 🌸 ✨</marquee>
-      </div>
-    </section>
-    <section id="start">
-      <img  src="./pictures/otherpages.jpg" alt="Cloud bacground with the logo"  width="100%"/>
-    </section>
-    <nav class="flex-container2">
-      <a class="navlink" href="New-arrivals.html">New arrivals</a>
-      <a class="navlink" href="Adidas.html">Adidas</a>
-      <a class="navlink" href="Jordan.html">Jordan</a>
-      <a class="navlink" href="index.html"> 
-      <img src="/pictures/logo.png" alt="Cloud sole logo"></a>
-      <a class="navlink" href="Nike-dunk.html">Nike Dunk</a>
-      <a class="navlink" href="Vans.html">Vans</a>
-      <a class="navlink" href="Nike.html">Nike</a>
-    </nav>
+  <section id="start">
+    <img  src="./pictures/otherpages.jpg" alt="Cloud bacground with the logo"  width="100%"/>
+  </section>
+  <nav class="flex-container2">
+    <a class="navlink" href="New-arrivals.html">New arrivals</a>
+    <a class="navlink" href="Adidas.html">Adidas</a>
+    <a class="navlink" href="Jordan.html">Jordan</a>
+    <a class="navlink" href="index.html"> 
+    <img src="/pictures/logo.png" alt="Cloud sole logo"></a>
+    <a class="navlink" href="Nike-dunk.html">Nike Dunk</a>
+    <a class="navlink" href="Vans.html">Vans</a>
+    <a class="navlink" href="Nike.html">Nike</a>
+  </nav>
   </header>
   <main>
-    <div  id="secUp">
-      <button>New Arrivals</button>
-      <select id="selSorter" onchange="hentRandomBrand()">
-        <option value="asc">Price:low to high</option>
-        <option value="desc">Price:high to low</option>
-    </select>
-    <div class="icons-bar">
-      <i class="material-icons" style="font-size:50px;color:#ADA9F4;">favorite</i>
-      <i class="material-icons" style="font-size:50px;color:#3de1b3;">shopping_basket</i>
-    </div>
-    </div>
-    <section class="arrivals">
+
+    <section class="all"></section>
+
     </section>
   </main>
   <footer class="foot">
@@ -108,49 +92,71 @@
     </div>
   </div>
   </div>
-  </footer>
+</footer>
 
   <script>
-    const db = firebase.firestore();
+      const db = firebase.firestore();
     const sneakers = db.collection("sneakers");
-    const arrivals = document.querySelector(".arrivals");
+    const all = document.querySelector(".all");
     const selSorter = document.querySelector("#selSorter");
+    
 
-    //new block start
     const hentAllesneakers = async () => {
-        const svar = await sneakers.get();
+      all.innerHTML = ``;
+        const svar = await sneakers.orderBy("price", selSorter.value).get();
         for (const sneakers of svar.docs){
         console.log(sneakers.data());
           lagsneakersHTML(sneakers.data());
         }
       }
-      
+     
+   
+ 
 
-
-
-      const hentRandomBrand = async () => {
-        arrivals.innerHTML= ``;
-        const svar = await sneakers.orderBy("price", selSorter.value).where("isNewArrival", "==", "Yes").get();
-        for (const sneakers of svar.docs){
-          lagsneakersHTML(sneakers.id, sneakers.data());
-        }
-
-      }
       const lagsneakersHTML = (id, sneakers) =>{
-        arrivals.innerHTML += `
-        <div>
-          <a href="Underside.html?id=${id}">
-            <img src="/Shoes-sorted/picture/${sneakers.picture}">
-          <h3> ${sneakers.name}</h3>
-          <h4 id="price"> ${sneakers.price} kr</h4>
-          <button class="btn">Add to cart</button>
-          </a>
-          </div>
+        all.innerHTML += `
+        <div class="small-container cart-page" >
+        <table>
+            <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Subtotal</th>
+            </tr>
+            <tr>
+                <td>
+                    <div class="cart-info">
+                        <img src="/Shoes-sorted/picture/${sneakers.picture}">
+                        <h3> ${sneakers.name}</h3>
+                        <h4 id="price" > ${sneakers.price} kr</h4>
+                        <br>
+                        <a href="">Remove</a>
+               </td>
+                <td><input type="number" value="1"></td>
+                <td><h4 id="price" > ${sneakers.price} kr</h4></td>
+            </tr>
+        </table>
+        div class="total-price">
+        <table>
+            <tr>
+                <td>Subtotal</td>
+                <td>id="price" > ${sneakers.price} kr</td>
+                <td>Shipping</td>
+                <td>free</td>
+                <td>Total</td>
+                <td>id="price" > ${sneakers.price} kr</td>
+            </tr>
+            </tr>
+        </table>
+        </div>
+
+    </div>
         `;
-
+        
+      
     };
+    hentAllesneakers();
+    
 
-    hentRandomBrand();
   </script>
 </body>
 

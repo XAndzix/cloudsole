@@ -10,7 +10,7 @@ width: 100%;
     font-size:2em;
     line-height:1.3em;
     color:#99CCFF;
-    background-color:#FFFFFF;
+    background-color:#f8f8f4;
     padding:3px;
     margin:auto;
     
@@ -48,11 +48,7 @@ width: 100%;
     margin-right: 60px;
     width: 100%;
 }
-button{
-    padding-bottom: 13px;
-    padding-left: 10%;
-    display: inline;
-}
+
 
 input, button{
     color: #64bbf0;
@@ -81,10 +77,7 @@ input, button{
     margin-top: 20px;
     margin-left: 700px;
 }
-button:actvie{
-    color: #7d79ce;
-    
- }
+
 a{
     text-decoration: none;
    color: #5F696F;
@@ -96,8 +89,10 @@ select{
      color: #5F696F;
      text-decoration: unset;
      padding: 2px;
-     
      margin-left: 10%;
+     width: 130px;
+    height: 20px;
+    margin-top: 40px; ;
      
  }
  
@@ -168,7 +163,7 @@ footer{
     padding-right: 20px;
 }
 .parfooter{
-    font-family: cursive;
+    font-family: 'Ubuntu', sans-serif;
     font-size: 12px;
     color: #363c3f;
     margin: 5%;
@@ -308,4 +303,77 @@ footer{
 .footer-mini {
   display: flex;
   justify-content: space-evenly;
+}
+.cart-page{
+  margin: 80px auto;
+}
+table{
+  width: 100%;
+  border-collapse: collapse;
+}
+.cart-info{
+  display: flex;
+  flex-wrap: wrap;
+
+}
+th{
+  text-align: left;
+  padding: 5px;
+  color: white;
+  background: #64bbf0;
+}
+td{
+  padding: 10px 5px;
+}
+td input{
+  width: 40px;
+  height: 30px;
+  padding: 5px;
+}
+td a{
+  color: #64bbf0;
+  font-size: 12px;
+}
+td img{
+  width: 80px;
+  margin-right: 10px;
+}
+.total-price{
+  display: flex;
+  justify-content: flex-end;
+}
+.total-price table{
+  border-top: 3px solid #7d79ce;
+  width: 100%;
+  max-width: 400px;
+}
+td:last-child{
+  text-align: right;
+}
+.slider{
+  display: flex;
+  max-width: 1150px;
+ 
+  
+
+}
+#rec-title{
+  display: flex;
+  max-width: 1150px;
+}
+
+ .btn{
+background: #64bbf0;
+color: white;
+border: none;
+cursor: pointer;
+transition: 0.2s;
+font-size: 15px;
+width: 80px;
+height: 20px;
+border-radius: 5px;
+margin-left: 0;
+}
+ .btn:hover{
+  transform: scale(0.9);
 }
