@@ -1,0 +1,10 @@
+body {
+    background-color: black;
+}
+.grid-right hr{
+    background-color: white;
+}
+p {
+    color: white;
+}
+/* this is where you add any color you want to change when its on darkmode*/
