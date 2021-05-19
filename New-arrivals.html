@@ -60,9 +60,11 @@
   <main>
     <div  id="secUp">
       <button>New Arrivals</button>
-      <select id="selSorter" onchange="hentRandomBrand()">
+      <select id="selSorter" onchange="hentAllesneakers()">
         <option value="asc">Price:low to high</option>
         <option value="desc">Price:high to low</option>
+        <option value="name">A-Z</option>
+        <option value="name">Z-A</option>
     </select>
     <div class="icons-bar">
       <i class="material-icons" style="font-size:50px;color:#ADA9F4;">favorite</i>
@@ -120,13 +122,35 @@
 
     //new block start
     const hentAllesneakers = async () => {
-        const svar = await sneakers.get();
-        for (const sneakers of svar.docs){
-        console.log(sneakers.data());
-          lagsneakersHTML(sneakers.data());
-        }
-      }
-      
+  arrivals.innerHTML = ``; // Sletter innholdet i secDyr.
+  let svar; // Oppretter en tom variabel for svar
+
+  // if-else-setning som fyller variabelen svar med passende svar
+ if (selSorter.value === "asc") {
+    // Hvis verdien i selSorter er "prisHoy" gjør følgende:
+    svar = await sneakers.orderBy("price","asc").where("isNewArrival", "==", "Yes").get();
+  }
+  else if (selSorter.value === "desc") {
+    // Hvis verdien i selSorter er "prisHoy" gjør følgende:
+    svar = await sneakers.orderBy("price","desc").where("isNewArrival", "==", "Yes").get();
+  }
+  else if (selSorter.value === "name") {
+    svar = await sneakers.orderBy("name","asc").where("isNewArrival", "==", "Yes").get();
+  }
+  else if (selSorter.value === "name") {
+    svar = await sneakers.orderBy("name","desc").where("isNewArrival", "==", "Yes").get();
+  }
+  else{
+    // Hvis veriden i selSorter er ingen av de over, gjør følgende:
+    svar = await sneakers.get();
+  }
+
+  
+  for(const sneakers of svar.docs){
+    lagsneakersHTML(sneakers.id, sneakers.data());
+  }
+}
+
 
 
 

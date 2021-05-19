@@ -68,6 +68,8 @@
         <option value="asc">Price:low to high</option>
         <option value="desc">Price:high to low</option>
         <option value="adidaspopularity">popularity</option>
+        <option value="name">A-Z</option>
+        <option value="name">Z-A</option>
     </select>
     <div class="icons-bar">
       <i class="material-icons" style="font-size:50px;color:#ADA9F4;">favorite</i>
@@ -144,11 +146,16 @@
     // Hvis verdien i selSorter er "prisHoy" gjør følgende:
     svar = await sneakers.orderBy("price","desc").where("brand", "==", "Adidas").get();
   }
+  else if (selSorter.value === "name") {
+    svar = await sneakers.orderBy("name","asc").where("brand", "==", "Adidas").get();
+  }
+  else if (selSorter.value === "name") {
+    svar = await sneakers.orderBy("name","desc").where("brand", "==", "Adidas").get();
+  }
   else{
     // Hvis veriden i selSorter er ingen av de over, gjør følgende:
     svar = await sneakers.get();
   }
-
   
   for(const sneakers of svar.docs){
     lagsneakersHTML(sneakers.id, sneakers.data());
