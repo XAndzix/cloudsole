@@ -63,10 +63,12 @@
       <button onclick="hentJordanBrand()">Jordan</button>
       <button onclick="hentsneakersMedstyle('JordanHigh')" >High</button>
       <button onclick="hentsneakersMedstyle('JordanLow')" >Low</button>
-      <select id="selSorter" onchange="hentJordanBrand()">
+      
+        <select id="selSorter" onchange="hentAllesneakers()">
         <option value="asc">Price:low to high</option>
         <option value="desc">Price:high to low</option>
-        <option value="Alfa">Alfabeticaly</option>
+        <option value="jordanpopularity">popularity</option>
+        <option value="jordantype">type</option>
     </select>
     <div class="icons-bar">
       <i class="material-icons" style="font-size:50px;color:#ADA9F4;">favorite</i>
@@ -131,7 +133,55 @@
    
     
 
+    const hentAllesneakers = async () => {
+  Jordan.innerHTML = ``; // Sletter innholdet i secDyr.
+  let svar; // Oppretter en tom variabel for svar
 
+  // if-else-setning som fyller variabelen svar med passende svar
+  if(selSorter.value === "jordanpopularity"){
+    // Hvis verdien i selSorter er "popularitet" gjør følgende:
+    svar = await sneakers.orderBy("jordnpopularity").get();
+  }
+  else if (selSorter.value === "jordantype") {
+    // Hvis verdien i selSorter er "prisHoy" gjør følgende:
+    svar = await sneakers.orderBy("jordantype").get();
+  }
+  else if (selSorter.value === "asc") {
+    // Hvis verdien i selSorter er "prisHoy" gjør følgende:
+    svar = await sneakers.orderBy("price","asc").get();
+  }
+  else if (selSorter.value === "desc") {
+    // Hvis verdien i selSorter er "prisHoy" gjør følgende:
+    svar = await sneakers.orderBy("price","desc").get();
+  }
+  else{
+    // Hvis veriden i selSorter er ingen av de over, gjør følgende:
+    svar = await sneakers.get();
+  }
+
+  
+  for(const sneakers of svar.docs){
+    lagsneakersHTML(sneakers.id, sneakers.data());
+  }
+}
+const hentsneakersMedstyle = async(style) =>{
+        Jordan.innerHTML = ``;
+        const svar = await sneakers.orderBy("price", selSorter.value).where("style", "==" ,style).get();
+        for (const sneakers of svar.docs){
+          lagsneakersHTML(sneakers.id, sneakers.data());
+
+        }
+        
+      }
+      const hentJordanBrand = async () => {
+        Jordan.innerHTML= ``;
+        const svar = await sneakers.orderBy("price", selSorter.value).where("brand", "==", "Jordan").get();
+        for (const sneakers of svar.docs){
+          lagsneakersHTML(sneakers.id, sneakers.data());
+        }
+       
+        
+      }
 /*
     const hentJordanBrand = async () => {
   Jordan.innerHTML = ``; // Sletter innholdet i secDyr.
@@ -161,9 +211,7 @@
           lagsneakersHTML(sneakers.id, sneakers.data());
         }
 }
-*/
-
-    const hentAllesneakers = async () => {
+ const hentAllesneakers = async () => {
       Jordan.innerHTML = ``;
         const svar = await sneakers.orderBy("price", selSorter.value).get();
         for (const sneakers of svar.docs){
@@ -173,29 +221,8 @@
           
         
       }
-      
-    
-     
-      const hentsneakersMedstyle = async(style) =>{
-        Jordan.innerHTML = ``;
-        const svar = await sneakers.orderBy("price", selSorter.value).where("style", "==" ,style).get();
-        for (const sneakers of svar.docs){
-          lagsneakersHTML(sneakers.id, sneakers.data());
+*/
 
-        }
-        
-      }
-     
-    
-      const hentJordanBrand = async () => {
-        Jordan.innerHTML= ``;
-        const svar = await sneakers.orderBy("price", selSorter.value).where("brand", "==", "Jordan").get();
-        for (const sneakers of svar.docs){
-          lagsneakersHTML(sneakers.id, sneakers.data());
-        }
-       
-        
-      }
 
 /*
         function visprod(data) {

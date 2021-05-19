@@ -62,9 +62,12 @@
       <button onclick="hentAdidasBrand()">Adidas</button>
       <button onclick="hentsneakersMedstyle('AdidasHigh')" >High</button>
       <button onclick="hentsneakersMedstyle('AdidasLow')" >Low</button>
+    
       <select id="selSorter" onchange="hentAdidasBrand()">
+       
         <option value="asc">Price:low to high</option>
         <option value="desc">Price:high to low</option>
+        <option value="adidaspopularity">popularity</option>
     </select>
     <div class="icons-bar">
       <i class="material-icons" style="font-size:50px;color:#ADA9F4;">favorite</i>
@@ -121,6 +124,54 @@
     const Adidas = document.querySelector(".Adidas");
     const selSorter = document.querySelector("#selSorter");
 
+
+    const hentAllesneakers = async () => {
+  Adidas.innerHTML = ``; // Sletter innholdet i secDyr.
+  let svar; // Oppretter en tom variabel for svar
+
+  // if-else-setning som fyller variabelen svar med passende svar
+  if(selSorter.value === "adidaspopularity"){
+    // Hvis verdien i selSorter er "popularitet" gjør følgende:
+    svar = await sneakers.orderBy("adidaspopularity").get();
+  }
+  else if (selSorter.value === "asc") {
+    // Hvis verdien i selSorter er "prisHoy" gjør følgende:
+    svar = await sneakers.orderBy("price","asc").get();
+  }
+  else if (selSorter.value === "desc") {
+    // Hvis verdien i selSorter er "prisHoy" gjør følgende:
+    svar = await sneakers.orderBy("price","desc").get();
+  }
+  else{
+    // Hvis veriden i selSorter er ingen av de over, gjør følgende:
+    svar = await sneakers.get();
+  }
+
+  
+  for(const sneakers of svar.docs){
+    lagsneakersHTML(sneakers.id, sneakers.data());
+  }
+}
+const hentsneakersMedstyle = async(style) =>{
+        Adidas.innerHTML = ``;
+        const svar = await sneakers.orderBy("price", selSorter.value).where("style", "==" ,style).get();
+        for (const sneakers of svar.docs){
+          lagsneakersHTML(sneakers.id, sneakers.data());
+
+        }
+      }
+const hentAdidasBrand = async () => {
+        Adidas.innerHTML= ``;
+        const svar = await sneakers.orderBy("price", selSorter.value).where("brand", "==", "Adidas").get();
+        for (const sneakers of svar.docs){
+          lagsneakersHTML(sneakers.id, sneakers.data());
+        }
+
+      }
+
+    
+/*
+
     const hentAllesneakers = async () => {
       Adidas.innerHTML = ``;
       const svar = await sneakers.orderBy("price", selSorter.value).get();
@@ -164,7 +215,23 @@
       
     };
     hentAdidasBrand();
-    
+    */
+    const lagsneakersHTML = (id, sneakers) =>{
+        Adidas.innerHTML += `
+        <div>
+          <a href="Underside.html?id=${id}">
+          <img src="/Shoes-sorted/picture/${sneakers.picture}">
+          <h3> ${sneakers.name}</h3>
+          <h4 id="price"> ${sneakers.price} kr</h4>
+          <button class="btn">Add to cart</button>
+          </a>
+          </div>
+          `;
+
+      
+};
+
+   hentAdidasBrand();
   </script>
 </body>
 
