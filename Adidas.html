@@ -62,8 +62,8 @@
       <button onclick="hentAdidasBrand()">Adidas</button>
       <button onclick="hentsneakersMedstyle('AdidasHigh')" >High</button>
       <button onclick="hentsneakersMedstyle('AdidasLow')" >Low</button>
-    
-      <select id="selSorter" onchange="hentAdidasBrand()">
+      
+      <select id="selSorter" onchange="hentAllesneakers()">
        
         <option value="asc">Price:low to high</option>
         <option value="desc">Price:high to low</option>
@@ -125,6 +125,8 @@
     const selSorter = document.querySelector("#selSorter");
 
 
+  
+  
     const hentAllesneakers = async () => {
   Adidas.innerHTML = ``; // Sletter innholdet i secDyr.
   let svar; // Oppretter en tom variabel for svar
@@ -136,11 +138,11 @@
   }
   else if (selSorter.value === "asc") {
     // Hvis verdien i selSorter er "prisHoy" gjør følgende:
-    svar = await sneakers.orderBy("price","asc").get();
+    svar = await sneakers.orderBy("price","asc").where("brand", "==", "Adidas").get();
   }
   else if (selSorter.value === "desc") {
     // Hvis verdien i selSorter er "prisHoy" gjør følgende:
-    svar = await sneakers.orderBy("price","desc").get();
+    svar = await sneakers.orderBy("price","desc").where("brand", "==", "Adidas").get();
   }
   else{
     // Hvis veriden i selSorter er ingen av de over, gjør følgende:
@@ -160,7 +162,8 @@ const hentsneakersMedstyle = async(style) =>{
 
         }
       }
-const hentAdidasBrand = async () => {
+      
+      const hentAdidasBrand = async () => {
         Adidas.innerHTML= ``;
         const svar = await sneakers.orderBy("price", selSorter.value).where("brand", "==", "Adidas").get();
         for (const sneakers of svar.docs){

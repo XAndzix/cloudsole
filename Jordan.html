@@ -140,7 +140,7 @@
   // if-else-setning som fyller variabelen svar med passende svar
   if(selSorter.value === "jordanpopularity"){
     // Hvis verdien i selSorter er "popularitet" gjør følgende:
-    svar = await sneakers.orderBy("jordnpopularity").get();
+    svar = await sneakers.orderBy("jordanpopularity").get();
   }
   else if (selSorter.value === "jordantype") {
     // Hvis verdien i selSorter er "prisHoy" gjør følgende:
@@ -148,11 +148,11 @@
   }
   else if (selSorter.value === "asc") {
     // Hvis verdien i selSorter er "prisHoy" gjør følgende:
-    svar = await sneakers.orderBy("price","asc").get();
+    svar = await sneakers.orderBy("price","asc").where("brand", "==", "Jordan").get();
   }
   else if (selSorter.value === "desc") {
     // Hvis verdien i selSorter er "prisHoy" gjør følgende:
-    svar = await sneakers.orderBy("price","desc").get();
+    svar = await sneakers.orderBy("price","desc").where("brand", "==", "Jordan").get();
   }
   else{
     // Hvis veriden i selSorter er ingen av de over, gjør følgende:

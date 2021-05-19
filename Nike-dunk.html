@@ -62,9 +62,11 @@
       <button onclick="hentDunkBrand()">Nike Dunk</button>
       <button onclick="hentsneakersMedstyle('DunkHigh')" >High</button>
       <button onclick="hentsneakersMedstyle('DunkLow')" >Low</button>
-      <select id="selSorter" onchange="hentDunkBrand()">
+      <select id="selSorter" onchange="hentAllesneakers()">
+       
         <option value="asc">Price:low to high</option>
         <option value="desc">Price:high to low</option>
+        <option value="adidaspopularity">popularity</option>
     </select>
     <div class="icons-bar">
       <i class="material-icons" style="font-size:50px;color:#ADA9F4;">favorite</i>
@@ -122,6 +124,36 @@
     const selSorter = document.querySelector("#selSorter");
 
     const hentAllesneakers = async () => {
+  Dunk.innerHTML = ``; // Sletter innholdet i secDyr.
+  let svar; // Oppretter en tom variabel for svar
+
+  // if-else-setning som fyller variabelen svar med passende svar
+  if(selSorter.value === "dunkpopularity"){
+    // Hvis verdien i selSorter er "popularitet" gjør følgende:
+    svar = await sneakers.orderBy("dunkpopularity").get();
+  }
+  else if (selSorter.value === "asc") {
+    // Hvis verdien i selSorter er "prisHoy" gjør følgende:
+    svar = await sneakers.orderBy("price","asc").where("brand", "==", "Dunk").get();
+  }
+  else if (selSorter.value === "desc") {
+    // Hvis verdien i selSorter er "prisHoy" gjør følgende:
+    svar = await sneakers.orderBy("price","desc").where("brand", "==", "Dunk").get();
+  }
+  else{
+    // Hvis veriden i selSorter er ingen av de over, gjør følgende:
+    svar = await sneakers.get();
+  }
+
+  
+  for(const sneakers of svar.docs){
+    lagsneakersHTML(sneakers.id, sneakers.data());
+  }
+}
+
+/*
+
+    const hentAllesneakers = async () => {
       Dunk.innerHTML= ``;
         const svar = await sneakers.get();
         for (const sneakers of svar.docs){
@@ -129,7 +161,7 @@
           lagsneakersHTML(sneakers.data());
         }
       }
-
+*/
       const hentsneakersMedstyle = async(style) =>{
         Dunk.innerHTML = ``;
         const svar = await sneakers.orderBy("price", selSorter.value).where("style", "==" ,style).get();
