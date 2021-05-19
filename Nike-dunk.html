@@ -66,7 +66,7 @@
        
         <option value="asc">Price:low to high</option>
         <option value="desc">Price:high to low</option>
-        <option value="adidaspopularity">popularity</option>
+        <option value="dunkpopularity">popularity</option>
     </select>
     <div class="icons-bar">
       <i class="material-icons" style="font-size:50px;color:#ADA9F4;">favorite</i>
@@ -134,11 +134,11 @@
   }
   else if (selSorter.value === "asc") {
     // Hvis verdien i selSorter er "prisHoy" gjør følgende:
-    svar = await sneakers.orderBy("price","asc").where("brand", "==", "Dunk").get();
+    svar = await sneakers.orderBy("price","asc").where("brand", "==", "Nike-dunk").get();
   }
   else if (selSorter.value === "desc") {
     // Hvis verdien i selSorter er "prisHoy" gjør følgende:
-    svar = await sneakers.orderBy("price","desc").where("brand", "==", "Dunk").get();
+    svar = await sneakers.orderBy("price","desc").where("brand", "==", "Nike-dunk").get();
   }
   else{
     // Hvis veriden i selSorter er ingen av de over, gjør følgende:

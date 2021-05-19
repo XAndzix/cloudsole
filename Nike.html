@@ -66,7 +66,7 @@
        
         <option value="asc">Price:low to high</option>
         <option value="desc">Price:high to low</option>
-        <option value="adidaspopularity">popularity</option>
+        <option value="nikepopularity">popularity</option>
     </select>
     <div class="icons-bar">
       <i class="material-icons" style="font-size:50px;color:#ADA9F4;">favorite</i>
@@ -124,13 +124,32 @@
     const selSorter = document.querySelector("#selSorter");
 
     const hentAllesneakers = async () => {
-      Nike.innerHTML= ``;
-        const svar = await sneakers.get();
-        for (const sneakers of svar.docs){
-        console.log(sneakers.data());
-          lagsneakersHTML(sneakers.data());
-        }
-      }
+  Nike.innerHTML = ``; // Sletter innholdet i secDyr.
+  let svar; // Oppretter en tom variabel for svar
+
+  // if-else-setning som fyller variabelen svar med passende svar
+  if(selSorter.value === "nikepopularity"){
+    // Hvis verdien i selSorter er "popularitet" gjør følgende:
+    svar = await sneakers.orderBy("nikepopularity").get();
+  }
+  else if (selSorter.value === "asc") {
+    // Hvis verdien i selSorter er "prisHoy" gjør følgende:
+    svar = await sneakers.orderBy("price","asc").where("brand", "==", "Nike").get();
+  }
+  else if (selSorter.value === "desc") {
+    // Hvis verdien i selSorter er "prisHoy" gjør følgende:
+    svar = await sneakers.orderBy("price","desc").where("brand", "==", "Nike").get();
+  }
+  else{
+    // Hvis veriden i selSorter er ingen av de over, gjør følgende:
+    svar = await sneakers.get();
+  }
+
+  
+  for(const sneakers of svar.docs){
+    lagsneakersHTML(sneakers.id, sneakers.data());
+  }
+}
       
       const hentNikeBrand = async () => {
         Nike.innerHTML= ``;
