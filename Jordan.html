@@ -8,6 +8,8 @@
   <link rel="stylesheet" href="search.css" />
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link rel="icon" type="image/png" href="pictures/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="pictures/favicon-16x16.png" sizes="16x16" />
   <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -64,6 +66,7 @@
       <select id="selSorter" onchange="hentJordanBrand()">
         <option value="asc">Price:low to high</option>
         <option value="desc">Price:high to low</option>
+        <option value="Alfa">Alfabeticaly</option>
     </select>
     <div class="icons-bar">
       <i class="material-icons" style="font-size:50px;color:#ADA9F4;">favorite</i>
@@ -125,7 +128,40 @@
     const sneakers = db.collection("sneakers");
     const Jordan = document.querySelector(".Jordan");
     const selSorter = document.querySelector("#selSorter");
+   
     
+
+
+/*
+    const hentJordanBrand = async () => {
+  Jordan.innerHTML = ``; // Sletter innholdet i secDyr.
+  let svar; // Oppretter en tom variabel for svar
+
+  // if-else-setning som fyller variabelen svar med passende svar
+  if(selSorter.value === "Alfa"){
+    // Hvis verdien i selSorter er "popularitet" gjør følgende:
+    svar = await sneakers.orderBy("name").get();
+  }
+  else if (selSorter.value === "prisHoy") {
+    // Hvis verdien i selSorter er "prisHoy" gjør følgende:
+    svar = await sneakers.orderBy("price","desc").get();
+  }
+  else if (selSorter.value === "prisLav") {
+    // Hvis verdien i selSorter er "prisLav" gjør følgende:
+    svar = await sneakers.orderBy("price").get();
+  }
+  else{
+    // Hvis veriden i selSorter er ingen av de over, gjør følgende:
+    svar = await sneakers.get();
+  }
+
+  
+  for (const sneakers of svar.docs){
+        console.log(sneakers.data());
+          lagsneakersHTML(sneakers.id, sneakers.data());
+        }
+}
+*/
 
     const hentAllesneakers = async () => {
       Jordan.innerHTML = ``;
@@ -134,7 +170,11 @@
         console.log(sneakers.data());
           lagsneakersHTML(sneakers.data());
         }
+          
+        
       }
+      
+    
      
       const hentsneakersMedstyle = async(style) =>{
         Jordan.innerHTML = ``;
@@ -143,16 +183,40 @@
           lagsneakersHTML(sneakers.id, sneakers.data());
 
         }
+        
       }
-      
+     
+    
       const hentJordanBrand = async () => {
         Jordan.innerHTML= ``;
         const svar = await sneakers.orderBy("price", selSorter.value).where("brand", "==", "Jordan").get();
         for (const sneakers of svar.docs){
           lagsneakersHTML(sneakers.id, sneakers.data());
         }
+       
+        
+      }
+
+/*
+        function visprod(data) {
+            // Primærnøkkel
+            const key = data.key;
+            // Data om filmen
+            const sneakers = data.val();
+        }
+        sneakers
+            .on("child_added", visprod);
 
       }
+      /*
+      function alfa() {
+            Jordan.innerHTML = "";
+            sneakers
+                .orderBy("name")
+                .on("child_added", visprod);
+
+        }
+     
       /*
       const hentLowStyle = async() =>{
         Jordan.innerHTML= ``;
