@@ -67,6 +67,10 @@
         <option value="asc">Price:low to high</option>
         <option value="desc">Price:high to low</option>
         <option value="vanspopularity">popularity</option>
+        <option value="name">A-Z</option>
+        <option value="name">Z-A</option>
+          
+        
     </select>
     </div>
     <div class="icons-bar">
@@ -141,6 +145,18 @@
     // Hvis verdien i selSorter er "prisHoy" gjør følgende:
     svar = await sneakers.orderBy("price","desc").where("brand", "==", "Vans").get();
   }
+  else if (selSorter.value === "name") {
+    svar = await sneakers.orderBy("name","asc").where("brand", "==", "Vans").get();
+  }
+  else if (selSorter.value === "name") {
+    svar = await sneakers.orderBy("name","desc").where("brand", "==", "Vans").get();
+  }
+  /*
+  else if (selSorter.value === "name") {
+    svar = await sneakers.orderBy("name").where("brand", "==", "Vans").get();
+  }
+    */  
+  
   else{
     // Hvis veriden i selSorter er ingen av de over, gjør følgende:
     svar = await sneakers.get();
