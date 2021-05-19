@@ -52,7 +52,9 @@
   </header>
   <main>
 
-    <section class="all"></section>
+    <section id="secCart">
+
+    </section>
 
     </section>
   </main>
@@ -99,9 +101,11 @@
   <script>
       const db = firebase.firestore();
     const sneakers = db.collection("sneakers");
-    const all = document.querySelector(".all");
+    const cart = db.collection("addtocart");
     const selSorter = document.querySelector("#selSorter");
-    
+    const secCart = document.querySelector("#secCart");
+
+    /*
 
     const hentAllesneakers = async () => {
       all.innerHTML = ``;
@@ -111,12 +115,24 @@
           lagsneakersHTML(sneakers.data());
         }
       }
-     
+     */
+
+                const hentCart = async () => {
+        const svar = await cart.get(); // Henter hele handlekurven
+        
+        for await (item of svar.docs) {
+            const sneakersId = item.data().sneakersId; // Får bokId fra varen i handlekurven
+            const sneakersSvar = await sneakers.doc(sneakersId).get(); // Spør etter den aktuelle boken fra boker-kolleksjonen
+            lagsneakersHTML(sneakersId, sneakersSvar.data()); // Kjører funksjonen lagHTML på hver bok
+        }
+        }
+
+       
    
  
 
-      const lagsneakersHTML = (id, sneakers) =>{
-        all.innerHTML += `
+      const lagsneakersHTML = () =>{
+        secCart.innerHTML += `
         <div class="small-container cart-page" >
         <table>
             <tr>
@@ -156,7 +172,7 @@
         
       
     };
-    hentAllesneakers();
+    hentCart();
     
 
   </script>

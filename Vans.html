@@ -125,8 +125,10 @@
   <script>
     const db = firebase.firestore();
     const sneakers = db.collection("sneakers");
+    const cart = db.collection("addtocart");
     const Vans = document.querySelector(".Vans");
     const selSorter = document.querySelector("#selSorter");
+    
 
     const hentAllesneakers = async () => {
   Vans.innerHTML = ``; // Sletter innholdet i secDyr.
@@ -185,23 +187,8 @@
 
         }
       }
-      /*
-      const hentLowStyle = async() =>{
-        Jordan.innerHTML= ``;
-        const svar = await sneakers.where("style", "==", "Low").get();
-        for (const sneakers of svar.docs){
-          lagsneakersHTML(sneakers.data());
-        }
-      }
 
-      const hentHighStyle = async() =>{
-        Jordan.innerHTML= ``;
-        const svar = await sneakers.where("style", "==", "High").get();
-        for (const sneakers of svar.docs){
-          lagsneakersHTML(sneakers.data());
-        }
-      }
-      */
+       
 
       const lagsneakersHTML = (id, sneakers) =>{
         Vans.innerHTML += `
@@ -209,14 +196,20 @@
           <a href="Underside.html?id=${id}">
           <img src="/Shoes-sorted/picture/${sneakers.picture}">
           <h3> ${sneakers.name}</h3>
-          <h4 id="price"> ${sneakers.price} kr</h4>
-          <button class="btn">Add to cart</button>
-          </a>
+          <h4 id="price"> ${sneakers.price} kr</h4></a>
+          <button class="btn" onclick="addtocart('${id}')" >Add to cart</button>
           </div>
         `;
 
       
     };
+    const addtocart = async (id) => {
+          await cart.add({
+            snkeakersId: id
+          });
+          alert("Item added to cart");
+        }
+
     hentVansBrand();
     
   </script>

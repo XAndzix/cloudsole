@@ -342,7 +342,7 @@ td a{
   font-size: 12px;
 }
 td img{
-  width: 80px;
+  width: 100%;
   margin-right: 10px;
 }
 .total-price{
