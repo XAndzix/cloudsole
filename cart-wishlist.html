@@ -55,10 +55,13 @@
     <section id="secCart">
 
     </section>
+    <a href="kasse.html"> <button class="btn2" >Go to payment</button> </a>
 
-    </section>
+
+    
   </main>
-  <footer class="foot">
+  
+  <footer class="foot" id="cart-foot">
 
     <div class="flexfooter">
     <div class="words">
@@ -123,20 +126,25 @@
 
 
         const hentCart = async () => {
+            secCart.innerHTML = ``;
         const svar = await cart.get(); // Henter hele handlekurven
         
         for await (item of svar.docs) {
+            const sneakersinCartId = item.id;
             const sneakersId = item.data().sneakersId; // Får bokId fra varen i handlekurven
             const sneakersSvar = await sneakers.doc(sneakersId).get(); // Spør etter den aktuelle boken fra boker-kolleksjonen
-            lagsneakersHTML(sneakersId, sneakersSvar.data()); // Kjører funksjonen lagHTML på hver bok
+            lagsneakersHTML(sneakersId, sneakersSvar.data(), sneakersinCartId ); // Kjører funksjonen lagHTML på hver bok
         }
         }
 
-       
+        const removefromCart = async (sneakersinCartId) => {
+        await cart.doc(sneakersinCartId).delete(); // Sletter varen fra handlekurven
+        hentCart (); // Henter handlekurven på nytt
+}
    
  
 
-      const lagsneakersHTML = (sneakersId, cart) =>{
+      const lagsneakersHTML = (id, sneakers, sneakersinCartId) =>{
         secCart.innerHTML += `
         <div class="small-container cart-page" >
         <table>
@@ -150,7 +158,7 @@
                     <div class="cart-info">
                         <img src="/Shoes-sorted/picture/${cart.picture}">
                         <h3> ${cart.name}</h3>
-                        <a href="">Remove</a>
+                        <button onclick=removefromCart('${sneakersinCartId}')>Remove</button>
                     </div>
                </td>
                 <td><input type="number" value="1"></td>
@@ -173,6 +181,7 @@
     </div>
 </div>
 
+
         `;
         
       
@@ -182,6 +191,7 @@
     
 
   </script>
+ 
 </body>
 
 </html>

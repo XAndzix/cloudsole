@@ -164,9 +164,7 @@ h3:hover {
 footer{
     background-image:url(/pictures/pastel-blue2.jpg);
 }
-.foot{
-    margin-bottom: 0%;
-}
+
 .pls{
     display: flex;
     margin: 0%;
@@ -450,3 +448,111 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
+#kasse {
+  margin-bottom: 50%;
+  background-color: white;
+  padding: 30px;
+  text-align: center;
+}
+#kasse h1 {
+    font-size: 30px;
+    font-family: 'Cormorant Garamond', serif;
+    color: #3f3f3f;
+    text-transform: uppercase;
+
+}
+#kasse h2 {
+  font-size: 20px;
+  font-family: Montserrat, serif;
+  color: #3f3f3f;
+  text-transform: uppercase;
+  margin: 7px;
+  margin-left: 5px;
+}
+delto {
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  grid-gap: 5px;
+}
+inphva {
+  width: 850px;
+  text-align: left;
+  padding: 10px 0px 0px 0px;
+  margin-left: 58px;
+}
+input[type="text" i] {
+  padding: 1px 2px;
+}
+#kasse input {
+  text-rendering: auto;
+  color: -internal-light-dark(black, white);
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  display: inline-block;
+  text-align: start;
+  appearance: auto;
+  background-color: -internal-light-dark(rgb(255, 255, 255), rgb(59, 59, 59));
+  -webkit-rtl-ordering: logical;
+  cursor: text;
+  margin: 0em;
+  font: 400 13.3333px Arial;
+  padding: 1px 2px;
+  border-width: 2px;
+  border-style: inset;
+  border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+  border-image: initial;
+}
+#inpfornavn, #inpetternavn, #inppostnr, #inpby, #inpcvv, #inputlop {
+  padding: 8px;
+  width: 400px;
+  margin: 0;
+  font-family: Montserrat,Arial;
+}
+.inphva {
+  width: 850px;
+  text-align: left;
+  padding: 10px 0px 0px 0px;
+  margin-left: 58px;
+}
+#inpadresse, #inpemail, #inptlf, #inpkortnr {
+  padding: 8px;
+  width: 818.5px;
+}
+btnbet {
+  background: #64bbf0;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s;
+  font-size: 15px;
+  width: 80px;
+  height: 20px;
+  border-radius: 5px;
+  margin-left: 0;;
+}
+#cart-foot{
+  margin-top: 50%;
+}
+.btn2{
+  background: #64bbf0;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s;
+  font-size: 15px;
+  width: 300px;
+  border-radius: 5px;
+  margin-left: 40%;
+  margin-top: 5%;
+  margin-bottom: 200px;
+  }
+  #secCart{
+    margin: 3%;
+  }
+  h17{
+    display: grid;
+    grid-template-columns: 1fr;
+  }
