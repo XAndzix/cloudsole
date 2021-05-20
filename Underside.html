@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.gstatic.com" />
   <link rel="icon" type="image/png" href="pictures/favicon-32x32.png" sizes="32x32" />
-    <link rel="icon" type="image/png" href="pictures/favicon-16x16.png" sizes="16x16" />
+  <link rel="icon" type="image/png" href="pictures/favicon-16x16.png" sizes="16x16" />
   <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet" />
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
@@ -37,14 +37,14 @@
 
 <body>
   <section id="start">
-    <img  src="./pictures/otherpages.jpg" alt="Cloud bacground with the logo"  width="100%"/>
+    <img src="./pictures/otherpages.jpg" alt="Cloud bacground with the logo" width="100%" />
   </section>
   <nav class="flex-container2">
     <a class="navlink" href="New-arrivals.html">New arrivals</a>
     <a class="navlink" href="Adidas.html">Adidas</a>
     <a class="navlink" href="Jordan.html">Jordan</a>
-    <a class="navlink" href="index.html"> 
-    <img src="/pictures/logo.png" alt="Cloud sole logo"></a>
+    <a class="navlink" href="index.html">
+      <img src="/pictures/logo.png" alt="Cloud sole logo"></a>
     <a class="navlink" href="Nike-dunk.html">Nike Dunk</a>
     <a class="navlink" href="Vans.html">Vans</a>
     <a class="navlink" href="Nike.html">Nike</a>
@@ -59,42 +59,43 @@
   <footer class="foot">
 
     <div class="flexfooter">
-    <div class="words">
-      <h3>About</h3>
+      <div class="words">
+        <h3>About</h3>
+      </div>
+      <div class="words">
+        <h3>Socials</h3>
+      </div>
     </div>
-    <div class="words">
-      <h3>Socials</h3>
-    </div>
-  </div>
-      <div class="pls" >
-    <div  class="parfooter">
-       <p> Cloud sole is the most kawaii pastel themed sneaker shop on the internet.</p>
+    <div class="pls">
+      <div class="parfooter">
+        <p> Cloud sole is the most kawaii pastel themed sneaker shop on the internet.</p>
         <p> We have a wide assortment of snkeakers from the most basic Nikesb Stefan Janoski black and white
-           to Nikedunk Jeff Staple pigeons that there were only 150 paris ever made.</p>
-       <p> We offer a gread deal of very unique pairs of snekaers of which many are collaboration between other companies
-        and designers.</p>
-       
+          to Nikedunk Jeff Staple pigeons that there were only 150 paris ever made.</p>
+        <p> We offer a gread deal of very unique pairs of snekaers of which many are collaboration between other
+          companies
+          and designers.</p>
+
+      </div>
+
+      <div class="socials">
+        <div>
+          <a href="https://www.facebook.com/nike">
+            <img src="/pictures/fb2.png" alt="Facebook pastel icon">
+          </a>
+        </div>
+        <div>
+          <a href="https://www.pinterest.com/sianaakim/pastel-streetwear/">
+            <img src="/pictures/pinterest2.png" alt="Pinterest Pastel icon">
+          </a>
+        </div>
+        <div>
+          <a href="https://www.instagram.com/_trobos_/">
+            <img src="/pictures/insta2.png" alt="instagram Pastel icon">
+          </a>
+        </div>
+      </div>
     </div>
-    
-      <div   class="socials">
-    <div >
-      <a href="https://www.facebook.com/nike">
-        <img src="/pictures/fb2.png" alt="Facebook pastel icon">
-      </a>
-    </div>
-    <div >
-      <a href="https://www.pinterest.com/sianaakim/pastel-streetwear/">
-        <img src="/pictures/pinterest2.png" alt="Pinterest Pastel icon">
-      </a>
-    </div>
-    <div>
-      <a href="https://www.instagram.com/_trobos_/">
-        <img src="/pictures/insta2.png" alt="instagram Pastel icon">
-      </a>
-    </div>
-  </div>
-  </div>
-</footer>
+  </footer>
 
   <script>
     const secShoes = document.querySelector("#secShoes");
@@ -122,8 +123,8 @@
           <img class="mySlides" src="/Shoes-sorted/otherpicture2/${sneakers.otherpicture2}">
           <img class="mySlides" src="/Shoes-sorted/otherpicture3/${sneakers.otherpicture3}">
           <img class="mySlides" src="/Shoes-sorted/otherpicture4/${sneakers.otherpicture4}">
-          <button onclick="plusDivs(-1)">&#10094;</button>
-<button onclick="plusDivs(+1)">&#10095;</button>
+          <button id="buttonLeft" onclick="plusDivs(-1)">&#10094;</button>
+          <button id="buttonRight" onclick="plusDivs(+1)">&#10095;</button>
         </div>
         <div class="underside-grid1">
           
@@ -161,11 +162,11 @@
 
     }
     const addtocart = async (id) => {
-          await cart.add({
-            sneakersId: id
-          });
-          alert("Item added to cart");
-        }
+      await cart.add({
+        sneakersId: id
+      });
+      alert("Item added to cart");
+    }
     hentShoes(id);
 
   </script>
