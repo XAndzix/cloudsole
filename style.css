@@ -546,8 +546,8 @@ btnbet {
   width: 300px;
   border-radius: 5px;
   margin-left: 40%;
-  margin-top: 5%;
-  margin-bottom: 200px;
+  margin-top: 20%;
+  margin-bottom: 3%;
   }
   #secCart{
     margin: 3%;
@@ -555,4 +555,20 @@ btnbet {
   h17{
     display: grid;
     grid-template-columns: 1fr;
+  }
+  #searchresults h1{
+    color: white;
+  }
+  .nameremove{
+    display: block;
+    margin-left: 5%;
+  }
+  #divTotalPris{
+    font-size: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: lightslategray;
+    float: right;
+    margin: 5%;
+    border-bottom: 3px solid #7d79ce;
+
   }

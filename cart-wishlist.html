@@ -54,8 +54,11 @@
 
     <section id="secCart">
 
+
     </section>
+    <div id="divTotalPris"></div>
     <a href="kasse.html"> <button class="btn2" >Go to payment</button> </a>
+
 
 
     
@@ -107,6 +110,7 @@
     const cart = db.collection("addtocart");
     const selSorter = document.querySelector("#selSorter");
     const secCart = document.querySelector("#secCart");
+    const divTotalPris = document.querySelector("#divTotalPris");
 
     /*
 
@@ -129,13 +133,17 @@
             secCart.innerHTML = ``;
         const svar = await cart.get(); // Henter hele handlekurven
         
+        let totalPris = 0;
         for await (item of svar.docs) {
             const sneakersinCartId = item.id;
             const sneakersId = item.data().sneakersId; // Får bokId fra varen i handlekurven
-            const sneakersSvar = await sneakers.doc(sneakersId).get(); // Spør etter den aktuelle boken fra boker-kolleksjonen
-            lagsneakersHTML(sneakersId, sneakersSvar.data(), sneakersinCartId ); // Kjører funksjonen lagHTML på hver bok
+            const sneakersSvar = await sneakers.doc(sneakersId).get();
+            totalPris += sneakersSvar.data().price; // Spør etter den aktuelle boken fra boker-kolleksjonen
+            lagsneakersHTML(sneakersId, sneakersSvar.data(), sneakersinCartId); // Kjører funksjonen lagHTML på hver bok
         }
-        }
+        divTotalPris.innerHTML = `Cart Sum: ${totalPris}kr`;
+    }
+  
 
         const removefromCart = async (sneakersinCartId) => {
         await cart.doc(sneakersinCartId).delete(); // Sletter varen fra handlekurven
@@ -156,24 +164,26 @@
             <tr>
                 <td>
                     <div class="cart-info">
-                        <img src="/Shoes-sorted/picture/${cart.picture}">
-                        <h3> ${cart.name}</h3>
+                        <img src="/Shoes-sorted/picture/${sneakers.picture}">
+                        <div class="nameremove">
+                        <h3> ${sneakers.name}</h3>
                         <button onclick=removefromCart('${sneakersinCartId}')>Remove</button>
                     </div>
+                </div>
                </td>
                 <td><input type="number" value="1"></td>
-                <td><h4> ${cart.price} kr</h4></td>
+                <td><h4> ${sneakers.price} kr</h4></td>
             </tr>
         </table>
         <div class="total-price">
         <table>
             <tr>
                 <td>Subtotal</td>
-                <td>  ${cart.price} kr</td>
+                <td>  ${sneakers.price} kr</td>
                 <td>Shipping</td>
                 <td>free</td>
                 <td>Total</td>
-                <td> ${cart.price} kr</td>
+                <td> <div id="divTotalPris"></div></td>
             </tr>
         </table>
         </div>
