@@ -112,23 +112,7 @@
     const secCart = document.querySelector("#secCart");
     const divTotalPris = document.querySelector("#divTotalPris");
 
-    /*
-
-    const hentAllesneakers = async () => {
-      all.innerHTML = ``;
-        const svar = await sneakers.orderBy("price", selSorter.value).get();
-        for (const sneakers of svar.docs){
-        console.log(sneakers.data());
-          lagsneakersHTML(sneakers.data());
-        }
-      }
-     */
-
-
-// funksjon som henter alle bøker fra databasen
-
-
-
+   
         const hentCart = async () => {
             secCart.innerHTML = ``;
         const svar = await cart.get(); // Henter hele handlekurven

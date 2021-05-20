@@ -448,6 +448,13 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
+.mySlides{
+  display: none;
+}
+.mySlides:nth-of-type(1){
+  display: block;
+}
+
 #kasse {
   margin-bottom: 50%;
   background-color: white;
