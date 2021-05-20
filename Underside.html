@@ -116,14 +116,17 @@
       secShoes.innerHTML = `
       <div class="main-grid">
         <div class="main-image">
-          <img id="main-image" src="/Shoes-sorted/picture/${sneakers.picture}">
+          <img class="mySlides" id="main-image" src="/Shoes-sorted/picture/${sneakers.picture}">
           <img id="brandLogo" src="/Shoes-sorted/logo/${sneakers.brandlogo}">
+          <img class="mySlides" src="/Shoes-sorted/otherpicture1/${sneakers.otherpicture1}">
+          <img class="mySlides" src="/Shoes-sorted/otherpicture2/${sneakers.otherpicture2}">
+          <img class="mySlides" src="/Shoes-sorted/otherpicture3/${sneakers.otherpicture3}">
+          <img class="mySlides" src="/Shoes-sorted/otherpicture4/${sneakers.otherpicture4}">
+          <button onclick="plusDivs(-1)">&#10094;</button>
+<button onclick="plusDivs(+1)">&#10095;</button>
         </div>
         <div class="underside-grid1">
-          <img src="/Shoes-sorted/otherpicture1/${sneakers.otherpicture1}">
-          <img src="/Shoes-sorted/otherpicture2/${sneakers.otherpicture2}">
-          <img src="/Shoes-sorted/otherpicture3/${sneakers.otherpicture3}">
-          <img src="/Shoes-sorted/otherpicture4/${sneakers.otherpicture4}">
+          
         </div>
         <div class="grid-right">
           <h2>${sneakers.name}</h2>
@@ -166,6 +169,7 @@
     hentShoes(id);
 
   </script>
+  <script src="slide.js"></script>
 </body>
 
 </html>
