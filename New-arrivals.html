@@ -64,7 +64,7 @@
         <option value="asc">Price:low to high</option>
         <option value="desc">Price:high to low</option>
         <option value="name">A-Z</option>
-        <option value="name">Z-A</option>
+        <option value="name-desc">Z-A</option>
     </select>
     <div class="icons-bar">
       <i class="material-icons" style="font-size:50px;color:#ADA9F4;">favorite</i>
@@ -138,7 +138,7 @@
   else if (selSorter.value === "name") {
     svar = await sneakers.orderBy("name","asc").where("isNewArrival", "==", "Yes").get();
   }
-  else if (selSorter.value === "name") {
+  else if (selSorter.value === "name-desc") {
     svar = await sneakers.orderBy("name","desc").where("isNewArrival", "==", "Yes").get();
   }
   else{
