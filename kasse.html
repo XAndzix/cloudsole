@@ -13,6 +13,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet" />
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+  <div id="colorScheme">
+    <link rel="stylesheet" type="text/css" media="(prefers-color-scheme: dark)" href="/include/dark.css">
+    <link rel="stylesheet" type="text/css" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
+      href="/include/dark.css">
+  </div>
+  <script src="/include/main.js"></script>
   <!-- The core Firebase JS SDK is always required and must be listed first -->
   <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-firestore.js"></script>
@@ -48,6 +54,10 @@
     <a class="navlink" href="Nike-dunk.html">Nike Dunk</a>
     <a class="navlink" href="Vans.html">Vans</a>
     <a class="navlink" href="Nike.html">Nike</a>
+    <label class="switch">
+        <input type="checkbox" id="colorPreferance">
+        <span class="slider round"></span>
+      </label>
   </nav>
   </header>
   <main>

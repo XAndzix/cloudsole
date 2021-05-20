@@ -12,19 +12,20 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="pictures/favicon-32x32.png" sizes="32x32" />
-    <link rel="icon" type="image/png" href="pictures/favicon-16x16.png" sizes="16x16" />
+  <link rel="icon" type="image/png" href="pictures/favicon-16x16.png" sizes="16x16" />
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script> 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-  
-    <div id="colorScheme">
-        <link rel="stylesheet" type="text/css" media="(prefers-color-scheme: dark)" href="/include/dark.css">
-        <link rel="stylesheet" type="text/css"
-        media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)" href="/include/dark.css">
-    </div>
-    <script src="/include/main.js"></script>
-    <link rel="icon" type="image/png" href="pictures/favicon-32x32.png" sizes="32x32" />
-    <link rel="icon" type="image/png" href="pictures/favicon-16x16.png" sizes="16x16" /> <!-- you need a small imag for this -->
+
+  <div id="colorScheme">
+    <link rel="stylesheet" type="text/css" media="(prefers-color-scheme: dark)" href="/include/dark.css">
+    <link rel="stylesheet" type="text/css" media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
+      href="/include/dark.css">
+  </div>
+  <script src="/include/main.js"></script>
+  <link rel="icon" type="image/png" href="pictures/favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="pictures/favicon-16x16.png" sizes="16x16" />
+  <!-- you need a small imag for this -->
   <!-- The core Firebase JS SDK is always required and must be listed first -->
   <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-firestore.js"></script>
@@ -55,7 +56,7 @@
         <form onsubmit="return false;">
           <div class="tb">
             <div class="td">
-              <input type="text" placeholder="Search" id="searchbox" required autocomplete="off"/>
+              <input type="text" placeholder="Search" id="searchbox" required autocomplete="off" />
             </div>
             <div class="td" id="s-cover">
               <button type="submit">
@@ -144,10 +145,10 @@
         </div>
       </div>
     </div>
-  </div>
-  </div>
-</footer>
-<!---
+    </div>
+    </div>
+  </footer>
+  <!---
 <script>
     
     $(".slider").owlCarousel({
@@ -205,17 +206,17 @@
         `;
     };
     const addtocart = async (id) => {
-          await cart.add({
-            sneakersId: id
-          });
-          alert("Item added to cart");
-        }
+      await cart.add({
+        sneakersId: id
+      });
+      alert("Item added to cart");
+    }
 
     document.querySelector("#searchbox").addEventListener("keyup", (e) => {
       const searchValue = e.target.value.toLowerCase();
       let results = [];
       let output = "";
-      
+
       for (let i = 0, len = allSneakers.length; i < len; i++) {
         if (searchValue && allSneakers[i].name.toLowerCase().trim().includes(searchValue)) results.push(allSneakers[i]);
       }
@@ -235,16 +236,16 @@
 
 
     hentRandomBrand();
-    
+
     // Comment and uncomment the lines below as needed. 
     sneakers.get().then(
-    // Get all sneakers, and update it instantly whenever something happens to the database. 
-    // sneakers.onSnapshot(
+      // Get all sneakers, and update it instantly whenever something happens to the database. 
+      // sneakers.onSnapshot(
       (snap) => (allSneakers = snap.docs.map(el => el.data()))
     );
 
-</script>
- 
+  </script>
+
 </body>
 
 </html>

@@ -11,8 +11,7 @@ body {
   font-size: 2em;
   line-height: 1.3em;
   color: #99ccff;
-  background-color: #f8f8f4;
-  padding: 3px;
+  padding: 0;
   margin: auto;
 }
 
@@ -85,13 +84,11 @@ button {
 
 a {
   text-decoration: none;
-  color: #5f696f;
 }
 select {
   float: right;
 }
 #selSorter {
-  color: #5f696f;
   text-decoration: unset;
   padding: 2px;
   margin-left: 10%;
@@ -120,18 +117,7 @@ h1 {
 h2 {
   color: #64bbf0;
 }
-h3 {
-  color: #5f696f;
-}
-h3:hover {
-  text-decoration: underline solid #5f696f 4px;
-}
-.navlink:hover {
-  text-decoration: underline solid #5f696f 4px;
-}
-.navlink:active {
-  text-decoration: underline solid #5f696f 4px;
-}
+
 #price {
   text-decoration: none;
   font-size: 20px;
@@ -179,8 +165,11 @@ footer {
   margin-bottom: 20%;
   margin-top: 0%;
 }
-.words {
+.words h3{
   color: rgb(218, 56, 170);
+}
+.words h3:hover{
+    text-decoration: underline solid rgb(218, 56, 170) 4px;
 }
 .socials {
   display: flex;
