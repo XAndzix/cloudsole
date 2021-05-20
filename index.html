@@ -52,10 +52,13 @@
     <section id="start">
       <img id="front-page" src="./pictures/frontpage.jpg" alt="Cloud bacground with the logo" />
       <div id="cover">
-        <form method="get" action="">
+        <form onsubmit="return false;">
           <div class="tb">
             <div class="td">
-              <input type="text" placeholder="Search" required />
+              <input type="text" placeholder="Search" id="searchbox" required autocomplete="off"/>
+            </div>
+            <div id="searchresults">
+
             </div>
             <div class="td" id="s-cover">
               <button type="submit">
@@ -221,6 +224,9 @@
     const sneakers = db.collection("sneakers");
     const recommended = document.querySelector(".recommended");
     const cart = db.collection("addtocart");
+    const searchResults = document.querySelector("#searchresults");
+
+    let allSneakers = [];
 
     //new block start
     const hentAllesneakers = async () => {
@@ -255,7 +261,6 @@
         </div>
       </div>
         `;
-
     };
     const addtocart = async (id) => {
           await cart.add({
@@ -264,9 +269,39 @@
           alert("Item added to cart");
         }
 
-    hentRandomBrand();
+    document.querySelector("#searchbox").addEventListener("keyup", (e) => {
+      const searchValue = e.target.value.toLowerCase();
+      let results = [];
+      let output = "";
+      
+      for (let i = 0, len = allSneakers.length; i < len; i++) {
+        if (searchValue && allSneakers[i].name.toLowerCase().trim().includes(searchValue)) results.push(allSneakers[i]);
+      }
 
-  </script>
+      for (let i = 0, len = results.length; i < len; i++) {
+        output += `
+          <h1>${results[i].name}</h1>
+          <br />
+        `;
+      }
+
+      console.log(output)
+
+      searchResults.innerHTML = output;
+
+    })
+
+
+    hentRandomBrand();
+    
+    // Comment and uncomment the lines below as needed. 
+    sneakers.get().then(
+    // Get all sneakers, and update it instantly whenever something happens to the database. 
+    // sneakers.onSnapshot(
+      (snap) => (allSneakers = snap.docs.map(el => el.data()))
+    );
+
+</script>
  
 </body>
 
