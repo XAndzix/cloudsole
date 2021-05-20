@@ -117,7 +117,12 @@
       }
      */
 
-                const hentCart = async () => {
+
+// funksjon som henter alle bøker fra databasen
+
+
+
+        const hentCart = async () => {
         const svar = await cart.get(); // Henter hele handlekurven
         
         for await (item of svar.docs) {
@@ -131,47 +136,48 @@
    
  
 
-      const lagsneakersHTML = () =>{
+      const lagsneakersHTML = (sneakersId, cart) =>{
         secCart.innerHTML += `
         <div class="small-container cart-page" >
         <table>
             <tr>
-                <th>Product</th>
+                <th>Product </th>
                 <th>Quantity</th>
                 <th>Subtotal</th>
             </tr>
             <tr>
                 <td>
                     <div class="cart-info">
-                        <img src="/Shoes-sorted/picture/${sneakers.picture}">
-                        <h3> ${sneakers.name}</h3>
-                        <h4 id="price" > ${sneakers.price} kr</h4>
-                        <br>
+                        <img src="/Shoes-sorted/picture/${cart.picture}">
+                        <h3> ${cart.name}</h3>
                         <a href="">Remove</a>
+                    </div>
                </td>
                 <td><input type="number" value="1"></td>
-                <td><h4 id="price" > ${sneakers.price} kr</h4></td>
+                <td><h4> ${cart.price} kr</h4></td>
             </tr>
         </table>
-        div class="total-price">
+        <div class="total-price">
         <table>
             <tr>
                 <td>Subtotal</td>
-                <td>id="price" > ${sneakers.price} kr</td>
+                <td>  ${cart.price} kr</td>
                 <td>Shipping</td>
                 <td>free</td>
                 <td>Total</td>
-                <td>id="price" > ${sneakers.price} kr</td>
-            </tr>
+                <td> ${cart.price} kr</td>
             </tr>
         </table>
         </div>
 
     </div>
+</div>
+
         `;
         
       
     };
+   
     hentCart();
     
 

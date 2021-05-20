@@ -342,7 +342,7 @@ td a{
   font-size: 12px;
 }
 td img{
-  width: 100%;
+  width: 20%;
   margin-right: 10px;
 }
 .total-price{
@@ -356,6 +356,10 @@ td img{
 }
 td:last-child{
   text-align: right;
+}
+h4#price {
+  margin-top: 70px;
+  margin-right: 200px;
 }
 .slider{
   display: flex;

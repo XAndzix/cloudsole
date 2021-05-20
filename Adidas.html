@@ -73,7 +73,7 @@
     </select>
     <div class="icons-bar">
       <i class="material-icons" style="font-size:50px;color:#ADA9F4;">favorite</i>
-      <i class="material-icons" style="font-size:50px;color:#3de1b3;">shopping_basket</i>
+      <a href="cart-wishlist.html"> <i class="material-icons" style="font-size:50px;color:#3de1b3;">shopping_basket</i></a>
     </div>
   </div>
     <section class="Adidas">
@@ -125,6 +125,7 @@
     const sneakers = db.collection("sneakers");
     const Adidas = document.querySelector(".Adidas");
     const selSorter = document.querySelector("#selSorter");
+    const cart = db.collection("addtocart");
 
 
   
@@ -233,13 +234,20 @@ const hentsneakersMedstyle = async(style) =>{
           <img src="/Shoes-sorted/picture/${sneakers.picture}">
           <h3> ${sneakers.name}</h3>
           <h4 id="price"> ${sneakers.price} kr</h4>
-          <button class="btn">Add to cart</button>
-          </a>
+        </a>
+          <button class="btn" onclick="addtocart('${id}')" >Add to cart</button>
+         
           </div>
           `;
 
       
 };
+const addtocart = async (id) => {
+          await cart.add({
+            sneakersId: id
+          });
+          alert("Item added to cart");
+        }
 
    hentAdidasBrand();
   </script>

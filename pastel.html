@@ -100,6 +100,7 @@
     const secShoes = document.querySelector("#secShoes");
     const db = firebase.firestore();
     const sneakers = db.collection("sneakers");
+    const cart = db.collection("addtocart");
 
     const url = new URL(window.location.href);
     const id = url.searchParams.get("id");
@@ -148,7 +149,7 @@
               <button>45.5</button>
               <button>47</button>
           </div>
-          <button id="addtocart">ADD TO CART</button>
+          <button class="btn" onclick="addtocart('${id}') "id="addtocart">ADD TO CART</button>
           <h3>Information about the product</h3>
           <p>${sneakers.description}</p>
           <hr>
@@ -165,6 +166,12 @@
       `;
 
     }
+    const addtocart = async (id) => {
+          await cart.add({
+            sneakersId: id
+          });
+          alert("Item added to cart");
+        }
     hentShoes(id);
 
   </script>

@@ -72,7 +72,7 @@
     </select>
     <div class="icons-bar">
       <i class="material-icons" style="font-size:50px;color:#ADA9F4;">favorite</i>
-      <i class="material-icons" style="font-size:50px;color:#3de1b3;">shopping_basket</i>
+      <a href="cart-wishlist.html"> <i class="material-icons" style="font-size:50px;color:#3de1b3;">shopping_basket</i></a>
     </div>
     </div>
     <section class="Nike">
@@ -124,6 +124,7 @@
     const sneakers = db.collection("sneakers");
     const Nike = document.querySelector(".Nike");
     const selSorter = document.querySelector("#selSorter");
+    const cart = db.collection("addtocart");
 
     const hentAllesneakers = async () => {
   Nike.innerHTML = ``; // Sletter innholdet i secDyr.
@@ -201,13 +202,19 @@
           <h3> ${sneakers.name}</h3>
           <div clas="pricename">
           <h4 id="price"> ${sneakers.price} kr</h4>
-          <button class="btn">Add to cart</button>
+        </a>
+          <button class="btn" onclick="addtocart('${id}')" >Add to cart</button>
           </div>
-          </a>
           </div>
         `;
       
     };
+    const addtocart = async (id) => {
+          await cart.add({
+            sneakersId: id
+          });
+          alert("Item added to cart");
+        }
     hentNikeBrand();
     
   </script>
