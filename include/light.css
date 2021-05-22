@@ -1,7 +1,30 @@
 body {
-    background-color: white;
+  background-color: white;
 }
-.grid-right hr{
-    background-color: black;
+.GeneratedMarquee {
+  background-color: #f8f8f4;
 }
+.grid-right hr {
+  background-color: black;
+}
+a {
+  color: #5f696f;
+}
+#selSorter {
+  color: #5f696f;
+  background-color: white;
+}
+h3 {
+  color: #5f696f;
+}
+h3:hover {
+    text-decoration: underline solid #5f696f 4px;
+  }
+  .navlink:hover {
+    text-decoration: underline solid #5f696f 4px;
+  }
+  .navlink:active {
+    text-decoration: underline solid #5f696f 4px;
+  }
+
 /* this is where you add any color you want to change when its on light*/

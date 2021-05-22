@@ -1,10 +1,33 @@
 body {
-    background-color: black;
+  background-color: black;
 }
-.grid-right hr{
-    background-color: white;
+.GeneratedMarquee {
+  background-color: #555553;
+}
+.grid-right hr {
+  background-color: white;
 }
 p {
-    color: white;
+  color: white;
 }
+a {
+  color: #aebdc5;
+}
+#selSorter {
+  color: #aebdc5;
+  background-color: black;
+}
+h3 {
+  color: #aebdc5;
+}
+h3:hover {
+    text-decoration: underline solid #aebdc5 4px;
+  }
+  .navlink:hover {
+    text-decoration: underline solid #aebdc5 4px;
+  }
+  .navlink:active {
+    text-decoration: underline solid #aebdc5 4px;
+  }
+
 /* this is where you add any color you want to change when its on darkmode*/
