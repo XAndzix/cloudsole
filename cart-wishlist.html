@@ -56,15 +56,18 @@
 
 
     </section>
-    <div id="divTotalPris"></div>
-    <a href="kasse.html"> <button class="btn2" >Go to payment</button> </a>
+    <div class="cd">
+    <div  id="divTotalPris"></div>
+    <a href="kasse.html"> <button class="btncart" >Go to payment</button> </a>
+</div>
+            </div>
 
 
 
     
   </main>
+  <footer class="foot">
   
-  <footer class="foot" id="cart-foot">
 
     <div class="flexfooter">
     <div class="words">
@@ -151,7 +154,7 @@
                         <img src="/Shoes-sorted/picture/${sneakers.picture}">
                         <div class="nameremove">
                         <h3> ${sneakers.name}</h3>
-                        <button onclick=removefromCart('${sneakersinCartId}')>Remove</button>
+                        <button id="remove" onclick=removefromCart('${sneakersinCartId}')>Remove</button>
                     </div>
                 </div>
                </td>
@@ -166,8 +169,8 @@
                 <td>  ${sneakers.price} kr</td>
                 <td>Shipping</td>
                 <td>free</td>
-                <td>Total</td>
-                <td> <div id="divTotalPris"></div></td>
+               
+    
             </tr>
         </table>
         </div>
