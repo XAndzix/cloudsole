@@ -115,14 +115,7 @@
     const url = new URL(window.location.href);
     const id = url.searchParams.get("id");
     console.log(id);
-    /*
-    const hentShoes = async (id) => {
-      const svar = await sneakers.doc(id).get();
-      lagShoesHTML(svar.docs[31].data());
-      console.log(svar.data());
-      lagShoesHTML(svar.data());
-    }
-    */
+  
     const hentShoes = async (id) => {
       svar = await sneakers.get();
       data = svar.docs.map((el) => el.data());

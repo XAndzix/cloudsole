@@ -79,7 +79,7 @@
         <option value="desc">Price:high to low</option>
         <option value="adidaspopularity">Popularity</option>
         <option value="name">A-Z</option>
-        <option value="name">Z-A</option>
+        <option value="name-desc">Z-A</option>
     </select>
     <div class="icons-bar">
       
@@ -160,7 +160,7 @@
   else if (selSorter.value === "name") {
     svar = await sneakers.orderBy("name","asc").where("brand", "==", "Adidas").get();
   }
-  else if (selSorter.value === "name") {
+  else if (selSorter.value === "name-desc") {
     svar = await sneakers.orderBy("name","desc").where("brand", "==", "Adidas").get();
   }
   else{
@@ -191,52 +191,7 @@ const hentsneakersMedstyle = async(style) =>{
       }
 
     
-/*
 
-    const hentAllesneakers = async () => {
-      Adidas.innerHTML = ``;
-      const svar = await sneakers.orderBy("price", selSorter.value).get();
-        for (const sneakers of svar.docs){
-        console.log(sneakers.data());
-          lagsneakersHTML(sneakers.data());
-        }
-      }
-      const hentsneakersMedstyle = async(style) =>{
-        Adidas.innerHTML = ``;
-        const svar = await sneakers.orderBy("price", selSorter.value).where("style", "==" ,style).get();
-        for (const sneakers of svar.docs){
-          lagsneakersHTML(sneakers.id, sneakers.data());
-
-        }
-      }
-
-      
-      const hentAdidasBrand = async () => {
-        Adidas.innerHTML= ``;
-        const svar = await sneakers.orderBy("price", selSorter.value).where("brand", "==", "Adidas").get();
-        for (const sneakers of svar.docs){
-          lagsneakersHTML(sneakers.id, sneakers.data());
-        }
-
-      }
-     
-
-      const lagsneakersHTML = (id, sneakers) =>{
-        Adidas.innerHTML += `
-        <div>
-          <a href="Underside.html?id=${id}">
-          <img src="/Shoes-sorted/picture/${sneakers.picture}">
-          <h3> ${sneakers.name}</h3>
-          <h4 id="price"> ${sneakers.price} kr</h4>
-          <button class="btn">Add to cart</button>
-          </a>
-          </div>
-        `;
-
-      
-    };
-    hentAdidasBrand();
-    */
     const lagsneakersHTML = (id, sneakers) =>{
         Adidas.innerHTML += `
         <div class="around">

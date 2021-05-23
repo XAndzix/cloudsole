@@ -78,10 +78,9 @@
         <option value="desc">Price:high to low</option>
         <option value="nikepopularity">Popularity</option>
         <option value="name">A-Z</option>
-        <option value="name">Z-A</option>
+        <option value="name-desc">Z-A</option>
     </select>
     <div class="icons-bar">
-      <i class="material-icons" style="font-size:50px;color:#ADA9F4;">favorite</i>
       <a href="cart-wishlist.html"> <i class="material-icons" style="font-size:50px;color:#3de1b3;">shopping_basket</i></a>
     </div>
     </div>
@@ -156,7 +155,7 @@
   else if (selSorter.value === "name") {
     svar = await sneakers.orderBy("name","asc").where("brand", "==", "Nike").get();
   }
-  else if (selSorter.value === "name") {
+  else if (selSorter.value === "name-desc") {
     svar = await sneakers.orderBy("name","desc").where("brand", "==", "Nike").get();
   }
   else{
@@ -187,23 +186,7 @@
         }
       }
 
-      /*
-      const hentLowStyle = async() =>{
-        Nike.innerHTML= ``;
-        const svar = await sneakers.where("style", "==", "Low").get();
-        for (const sneakers of svar.docs){
-          lagsneakersHTML(sneakers.data());
-        }
-      }
-
-      const hentHighStyle = async() =>{
-        Nike.innerHTML= ``;
-        const svar = await sneakers.where("style", "==", "High").get();
-        for (const sneakers of svar.docs){
-          lagsneakersHTML(sneakers.data());
-        }
-      }
-      */
+    
       const lagsneakersHTML = (id, sneakers) =>{
         Nike.innerHTML += `
         <div>

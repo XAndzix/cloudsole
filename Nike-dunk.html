@@ -79,7 +79,7 @@
         <option value="desc">Price:high to low</option>
         <option value="dunkpopularity">Popularity</option>
         <option value="name">A-Z</option>
-        <option value="name">Z-A</option>
+        <option value="name-desc">Z-A</option>
     </select>
     <div class="icons-bar">
       <a href="cart-wishlist.html"> <i class="material-icons" style="font-size:50px;color:#3de1b3;">shopping_basket</i></a>
@@ -156,7 +156,7 @@
   else if (selSorter.value === "name") {
     svar = await sneakers.orderBy("name","asc").where("brand", "==", "Nike-dunk").get();
   }
-  else if (selSorter.value === "name") {
+  else if (selSorter.value === "name-desc") {
     svar = await sneakers.orderBy("name","desc").where("brand", "==", "Nike-dunk").get();
   }
   else{
@@ -170,17 +170,6 @@
   }
 }
 
-/*
-
-    const hentAllesneakers = async () => {
-      Dunk.innerHTML= ``;
-        const svar = await sneakers.get();
-        for (const sneakers of svar.docs){
-        console.log(sneakers.data());
-          lagsneakersHTML(sneakers.data());
-        }
-      }
-*/
       const hentsneakersMedstyle = async(style) =>{
         Dunk.innerHTML = ``;
         const svar = await sneakers.orderBy("price", selSorter.value).where("style", "==" ,style).get();
@@ -199,23 +188,7 @@
         }
 
       }
-      /*
-      const hentLowStyle = async() =>{
-        Dunk.innerHTML= ``;
-        const svar = await sneakers.where("style", "==", "Low").get();
-        for (const sneakers of svar.docs){
-          lagsneakersHTML(sneakers.data());
-        }
-      }
-
-      const hentHighStyle = async() =>{
-        Dunk.innerHTML= ``;
-        const svar = await sneakers.where("style", "==", "High").get();
-        for (const sneakers of svar.docs){
-          lagsneakersHTML(sneakers.data());
-        }
-      }
-      */
+  
       const lagsneakersHTML = (id, sneakers) =>{
         Dunk.innerHTML += `
         <div class="around">

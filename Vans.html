@@ -78,15 +78,15 @@
         <option value="desc">Price:high to low</option>
         <option value="vanspopularity">Popularity</option>
         <option value="name">A-Z</option>
-        <option value="name">Z-A</option>
+        <option value="name-desc">Z-A</option>
           
         
     </select>
-    </div>
     <div class="icons-bar">
-      <i class="material-icons" style="font-size:50px;color:#ADA9F4;">favorite</i>
       <i class="material-icons" style="font-size:50px;color:#3de1b3;">shopping_basket</i>
     </div>
+    </div>
+    
     
     <section class="Vans">
         
@@ -160,7 +160,7 @@
   else if (selSorter.value === "name") {
     svar = await sneakers.orderBy("name","asc").where("brand", "==", "Vans").get();
   }
-  else if (selSorter.value === "name") {
+  else if (selSorter.value === "name-desc") {
     svar = await sneakers.orderBy("name","desc").where("brand", "==", "Vans").get();
   }
   /*

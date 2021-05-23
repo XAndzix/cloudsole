@@ -1,6 +1,6 @@
 .row {
-    display: -ms-flexbox; /* IE10 */
-    display: flex;
+    /* IE10 */
+    display: block;
     -ms-flex-wrap: wrap; /* IE10 */
     flex-wrap: wrap;
     margin: 0 -16px;
