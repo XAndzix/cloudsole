@@ -67,11 +67,11 @@
   <main>
     
     
-         <section id="secCart"></section>
+         <section id="secCart">
       
               
                   <h3>Billing Address</h3>
-                  <form onsubmit="kjopSneakers(event)">
+                  <form onsubmit="kjopSneakers(event)" >
                   <label for="fname"><i class="fa fa-user"></i> Full Name</label>
                   <input type="text" id="fname" name="firstname" placeholder="John M. Doe">
                   <label for="email"><i class="fa fa-envelope"></i> Email</label>
@@ -123,7 +123,7 @@
               
             
           
-        <button type="submit" class="btn3">Submit</button>
+        <button type="submit"  class="btn3">Submit</button>
       </form>
       </section>
        
@@ -148,25 +148,10 @@
     const kjop = db.collection("kjop")
     const divTotalPris = document.querySelector("#divTotalPris");
    
- // Henter hele handlekurven
-  /*
-        let totalPris = 0;
-        for await (item of svar.docs) {
-            const sneakersinCartId = item.id;
-            const sneakersId = item.data().sneakersId; // Får bokId fra varen i handlekurven
-            const sneakersSvar = await sneakers.doc(sneakersId).get();
-            totalPris += sneakersSvar.data().price; // Spør etter den aktuelle boken fra boker-kolleksjonen
-            lagsneakersHTML(sneakersId, sneakersSvar.data(), sneakersinCartId); // Kjører funksjonen lagHTML på hver bok
-        }
-      
-    }
-    */
-  
-
-      
 
 const kjopSneakers = async (event) => {
-  
+  event.preventDefault();
+  alert('order furfilled');
   const svar = await cart.get();
   for await(const addtocart of svar.docs){
       const sneakersId = addtocart.data().sneakersId;
@@ -195,7 +180,7 @@ const kjopSneakers = async (event) => {
 
   
 }
-kjopSneakers();
+
 
 
 
