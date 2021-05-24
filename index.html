@@ -184,7 +184,7 @@
       recommended.innerHTML += `
      
 
-      <div id="ItemContainer">
+      <div id="indexid">
           <a href="Underside.html?id=${id}">
           <img src="/Shoes-sorted/picture/${sneakers.picture}">
           <h3> ${sneakers.name}</h3>
@@ -193,8 +193,7 @@
           <button class="btn" onclick="addtocart('${id}')" >Add to cart</button>
           
           </div>
-        </div>
-      </div>
+        
         `;
     };
     const addtocart = async (id) => {

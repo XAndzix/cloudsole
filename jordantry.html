@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Musikkbiblioteket</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="style.css">
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-firestore.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyA9XKwT1K_6W2Fh3WMYgD44V-y6ze2cJAs",
+        authDomain: "musikkbiblioteket-9fa0e.firebaseapp.com",
+        projectId: "musikkbiblioteket-9fa0e",
+        storageBucket: "musikkbiblioteket-9fa0e.appspot.com",
+        messagingSenderId: "871365937342",
+        appId: "1:871365937342:web:72fe7d2c1819ab8bf736ef"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Musikkbiblioteket</h1>
+        <nav>
+            <a href="artister.html">Artister</a>
+            <a class="active" href="album.html">Album</a>
+        </nav>
+    </header>
+    <main>
+
+    
+
+        <section id="sortering">
+            <h2>Sortering</h2>
+            <div>
+                <button id="btnAlle" onclick="byttSortering('alle')">Alle</button>
+                <button id="btnIndie" onclick="byttSortering('Indie')">Indie</button>
+                <button id="btnPop" onclick="byttSortering('Pop')">Pop</button>
+                <button id="btnHipHop" onclick="byttSortering('HipHop')">Hiphop</button>
+                <button id="btnRnB" onclick="byttSortering('RnB')">RnB</button>
+            </div>
+            <select id="selSorter" onchange="hentAlbum()">
+                <option value="asc">Lav til høy</option>
+                <option value="desc">Høy til lav</option>
+            </select>
+        </section>
+
+
+
+        <article id="artAlbum">
+
+        </article>
+        <article id="artSorterer">
+
+        </article>
+
+    </main>
+
+    <script>
+        const db = firebase.firestore();
+        const Album = db.collection("Album");
+
+        const artAlbum = document.querySelector("#artAlbum");
+
+        let valgtSortering = "alle";
+
+        const byttSortering = (nySortering) => {
+            valgtSortering = nySortering;
+            hentAlbum();
+        }
+
+
+
+        const hentAlbum = async () => {
+            fjernUnderstreker();
+            const knapp = document.querySelector("#btnAlle")
+            artAlbum.innerHTML = ``;
+            let svar;
+            if(valgtSortering === "alle"){
+                svar = await Album.orderBy("aar", selSorter.value).get();
+            } else {
+                svar = await Album.orderBy("aar", selSorter.value).where("sjanger", "==", valgtSortering).get();
+            }
+            for(const album of svar.docs){
+                lagAlbumHTML(album.id, album.data());
+            }
+        }
+
+        const hentAlbumMedSjanger = async (sjanger) => {
+            artAlbum.innerHTML = ``;
+            const svar = await Album.where("sjanger", "==", sjanger).get();
+            for(const album of svar.docs){
+                lagAlbumHTML(album.id, album.data());
+            }
+        }
+
+        const lagAlbumHTML = (id, album) => {
+            artAlbum.innerHTML += `
+                <div>
+                    <img src="bilder/${album.bilde}">
+                </div>
+            `;
+        }
+
+
+
+        const fjernUnderstreker = () => {
+            const knapper = document.querySelectorAll("#sortering button");
+            for(const knapp of knapper){
+                knapp.classList.remove("active");
+            }
+        }
+
+        hentAlbum();
+
+    </script>
+</body>
+</html>

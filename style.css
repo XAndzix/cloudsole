@@ -646,6 +646,7 @@ h4#price{
       height: 30px;
       padding: 5px;
     }
+  }
 
 
     /*index responcive*/
@@ -673,6 +674,10 @@ h4#price{
         margin-right: 5%;
         justify-content: space-between;
     } 
+    .recommended{
+      display: flex;
+      flex-direction: column;
+    }
     }
     @media (max-width: 800px) {
       .flex-container{
@@ -689,7 +694,15 @@ h4#price{
       height: 200%;
       
     }
+    .recommended{
+      display: flex;
+      flex-direction: column;
+      width: 50%;
+      margin-left: 20%;
     }
+   
+    }
+  
     @media (max-width: 500px) {
       .flex-container{
         margin-left: 2%;
@@ -704,7 +717,7 @@ h4#price{
       height: 30px;
       padding: 5px;
     }
-  }
+  
   .parfooter{
     font-size: 10px;
   }
@@ -714,4 +727,37 @@ h4#price{
     flex-direction: column;
   }
 }
+/*underside responcive*/
+@media(min-width: 1920px){
+ .main-image #main-image{
+   width: 90%;
+ }
+ #addtocart{
+   margin: 4%;
+ }
+  }
+  @media(max-width: 800px){
+    .main-grid{
+      grid-template-columns: 1fr;
+      grid-template-areas: none;
+      display: flex;
+      flex-direction: column;
+    }
+    .mySlides img{
+      max-width: 200%;
+    }
+    .main-image #buttonRight{
+      right: 10%;
+      
+    }
+    #addtocart{
+      margin: 3%;
+      margin-top: 8%;
+      margin-bottom: 8%;
+      
+    }
+    .btn{
+      width: 40px;
+    }
+  }
 

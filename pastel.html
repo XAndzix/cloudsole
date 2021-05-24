@@ -49,8 +49,8 @@
     <a class="navlink" href="New-arrivals.html">New arrivals</a>
     <a class="navlink" href="Adidas.html">Adidas</a>
     <a class="navlink" href="Jordan.html">Jordan</a>
-    <a class="navlink" href="index.html"> 
-    <img src="/pictures/logo.png" alt="Cloud sole logo"></a>
+    <a class="navlink" href="index.html">
+      <img src="/pictures/logo.png" alt="Cloud sole logo"></a>
     <a class="navlink" href="Nike-dunk.html">Nike Dunk</a>
     <a class="navlink" href="Vans.html">Vans</a>
     <a class="navlink" href="Nike.html">Nike</a>
@@ -128,14 +128,17 @@
       secShoes.innerHTML = `
       <div class="main-grid">
         <div class="main-image">
-          <img id="main-image" src="/Shoes-sorted/picture/${sneakers.picture}">
-          <img id="brandLogo" src="/Shoes-sorted/logo/${sneakers.brandlogo}">
+          <img class="mySlides" id="main-image" src="/Shoes-sorted/picture/${sneakers.picture}">
+         <!-- <img id="brandLogo" src="/Shoes-sorted/logo/${sneakers.brandlogo}">  -->
+          <img class="mySlides" src="/Shoes-sorted/otherpicture1/${sneakers.otherpicture1}">
+          <img class="mySlides" src="/Shoes-sorted/otherpicture2/${sneakers.otherpicture2}">
+          <img class="mySlides" src="/Shoes-sorted/otherpicture3/${sneakers.otherpicture3}">
+          <img class="mySlides" src="/Shoes-sorted/otherpicture4/${sneakers.otherpicture4}">
+          <button id="buttonLeft" onclick="plusDivs(-1)">&#10094;</button>
+          <button id="buttonRight" onclick="plusDivs(+1)">&#10095;</button>
         </div>
         <div class="underside-grid1">
-          <img src="/Shoes-sorted/otherpicture1/${sneakers.otherpicture1}">
-          <img src="/Shoes-sorted/otherpicture2/${sneakers.otherpicture2}">
-          <img src="/Shoes-sorted/otherpicture3/${sneakers.otherpicture3}">
-          <img src="/Shoes-sorted/otherpicture4/${sneakers.otherpicture4}">
+          
         </div>
         <div class="grid-right">
           <h2>${sneakers.name}</h2>
@@ -178,6 +181,7 @@
     hentShoes(id);
 
   </script>
+   <script src="slide.js"></script>
 </body>
 
 </html>

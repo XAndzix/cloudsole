@@ -52,7 +52,7 @@
     font-size: 24px;
   }
   input[type="text"] {
-    color: rgb(29, 198, 228);
+    color: rgb(0, 0, 0);
     width: 60%;
     height: 30px;
     font-size: 60px;
@@ -94,7 +94,7 @@
       margin-bottom: 20px;
     }
     input[type="text"] {
-        color: rgb(29, 198, 228);
+        color: rgb(0, 0, 0);
         width: 50%;
         height: 40px;
     }
