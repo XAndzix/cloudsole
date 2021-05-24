@@ -163,12 +163,7 @@
   else if (selSorter.value === "name-desc") {
     svar = await sneakers.orderBy("name","desc").where("brand", "==", "Vans").get();
   }
-  /*
-  else if (selSorter.value === "name") {
-    svar = await sneakers.orderBy("name").where("brand", "==", "Vans").get();
-  }
-    */  
-  
+
   else{
     // Hvis veriden i selSorter er ingen av de over, gjør følgende:
     svar = await sneakers.get();

@@ -1,5 +1,5 @@
 body {
-  background-color: black;
+  background-color: rgb(38, 37, 37);
 }
 .GeneratedMarquee {
   background-color: #555553;
@@ -15,7 +15,7 @@ a {
 }
 #selSorter {
   color: #aebdc5;
-  background-color: black;
+  background-color: rgb(38, 37, 37);
 }
 h3 {
   color: #aebdc5;
